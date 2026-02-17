@@ -9,14 +9,14 @@ export default function Hero() {
           className="absolute inset-0"
           style={{
             backgroundImage:
-              "linear-gradient(rgba(59,130,246,0.08) 1px, transparent 1px), linear-gradient(90deg, rgba(59,130,246,0.08) 1px, transparent 1px)",
+              "linear-gradient(rgba(201,169,110,0.06) 1px, transparent 1px), linear-gradient(90deg, rgba(201,169,110,0.06) 1px, transparent 1px)",
             backgroundSize: "64px 64px",
           }}
         />
       </div>
 
       {/* Radial gradient overlay */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(59,130,246,0.08)_0%,transparent_70%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(201,169,110,0.06)_0%,transparent_70%)]" />
 
       {/* Subtle top glow */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-accent/5 rounded-full blur-[120px] animate-pulse-glow" />
@@ -37,7 +37,7 @@ export default function Hero() {
         </h1>
 
         {/* Subheadline */}
-        <p className="animate-fade-in-up-delay-2 text-xl sm:text-2xl lg:text-3xl font-semibold text-accent-light mb-4">
+        <p className="animate-fade-in-up-delay-2 text-xl sm:text-2xl lg:text-3xl font-semibold text-accent mb-4">
           The Operational Layer for Scalable Autonomy.
         </p>
 
@@ -51,7 +51,7 @@ export default function Hero() {
         <div className="animate-fade-in-up-delay-4 flex flex-col sm:flex-row items-center justify-center gap-4">
           <a
             href="#platform"
-            className="group inline-flex items-center gap-2 px-8 py-4 bg-accent hover:bg-accent-light text-white font-semibold rounded-lg transition-all duration-200 hover:shadow-[0_0_24px_rgba(59,130,246,0.3)]"
+            className="group inline-flex items-center gap-2 px-8 py-4 bg-accent hover:bg-accent-light text-background font-semibold rounded-lg transition-all duration-200 hover:shadow-[0_0_24px_rgba(201,169,110,0.3)]"
           >
             Explore the Platform
             <svg
@@ -70,13 +70,13 @@ export default function Hero() {
           </a>
           <a
             href="#architecture"
-            className="inline-flex items-center gap-2 px-8 py-4 border border-border hover:border-muted text-foreground font-semibold rounded-lg transition-all duration-200 bg-surface/30 hover:bg-surface/60 backdrop-blur-sm"
+            className="inline-flex items-center gap-2 px-8 py-4 border border-border hover:border-accent/40 text-foreground font-semibold rounded-lg transition-all duration-200 bg-surface/30 hover:bg-surface/60 backdrop-blur-sm"
           >
             See Architecture
           </a>
           <a
             href="#nvidia"
-            className="inline-flex items-center gap-2 px-8 py-4 border border-border hover:border-muted text-muted hover:text-foreground font-semibold rounded-lg transition-all duration-200 bg-transparent hover:bg-surface/30"
+            className="inline-flex items-center gap-2 px-8 py-4 border border-border hover:border-accent/40 text-muted hover:text-foreground font-semibold rounded-lg transition-all duration-200 bg-transparent hover:bg-surface/30"
           >
             NVIDIA Stack Integration
           </a>
