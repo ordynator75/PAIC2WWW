@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PAI C2 — Physical AI Command &amp; Control</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --bg: #030712;
+      --fg: #f9fafb;
+      --muted: #6b7280;
+      --accent: #3b82f6;
+      --accent-light: #60a5fa;
+      --surface: #111827;
+      --border: #1f2937;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--fg);
+      font-family: 'Inter', ui-sans-serif, system-ui, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    /* Hero */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    /* Grid background */
+    .hero-grid {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(59,130,246,0.08) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(59,130,246,0.08) 1px, transparent 1px);
+      background-size: 64px 64px;
+      animation: gridFade 1.5s ease-out both;
+    }
+
+    /* Radial glow */
+    .hero-radial {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at center, rgba(59,130,246,0.08) 0%, transparent 70%);
+    }
+
+    /* Top glow */
+    .hero-glow {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 800px;
+      height: 400px;
+      background: rgba(59,130,246,0.05);
+      border-radius: 50%;
+      filter: blur(120px);
+      animation: pulseGlow 3s ease-in-out infinite;
+    }
+
+    /* Content */
+    .hero-content {
+      position: relative;
+      z-index: 10;
+      max-width: 64rem;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+      text-align: center;
+    }
+
+    /* Tag */
+    .hero-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.5rem 1rem;
+      border-radius: 9999px;
+      border: 1px solid var(--border);
+      background: rgba(17,24,39,0.5);
+      backdrop-filter: blur(8px);
+      font-size: 0.875rem;
+      color: var(--muted);
+      font-family: 'JetBrains Mono', monospace;
+      letter-spacing: 0.05em;
+      margin-bottom: 2rem;
+      animation: fadeInUp 0.8s ease-out both;
+    }
+
+    .hero-tag-dot {
+      width: 0.5rem;
+      height: 0.5rem;
+      border-radius: 50%;
+      background: var(--accent);
+      animation: pulseGlow 3s ease-in-out infinite;
+    }
+
+    /* Headline */
+    .hero-headline {
+      font-size: clamp(3rem, 8vw, 4.5rem);
+      font-weight: 800;
+      letter-spacing: -0.025em;
+      line-height: 1.1;
+      margin-bottom: 1.5rem;
+      color: var(--fg);
+      animation: fadeInUp 0.8s ease-out 0.15s both;
+    }
+
+    /* Subheadline */
+    .hero-subheadline {
+      font-size: clamp(1.25rem, 3vw, 1.875rem);
+      font-weight: 600;
+      color: var(--accent-light);
+      margin-bottom: 1rem;
+      animation: fadeInUp 0.8s ease-out 0.3s both;
+    }
+
+    /* Supporting */
+    .hero-supporting {
+      font-size: clamp(1.125rem, 2.5vw, 1.25rem);
+      color: var(--muted);
+      max-width: 40rem;
+      margin: 0 auto 3rem;
+      line-height: 1.6;
+      animation: fadeInUp 0.8s ease-out 0.45s both;
+    }
+
+    /* CTAs */
+    .hero-ctas {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      animation: fadeInUp 0.8s ease-out 0.6s both;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 1rem 2rem;
+      font-size: 1rem;
+      font-weight: 600;
+      border-radius: 0.5rem;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      cursor: pointer;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #fff;
+      border: none;
+    }
+    .btn-primary:hover {
+      background: var(--accent-light);
+      box-shadow: 0 0 24px rgba(59,130,246,0.3);
+    }
+    .btn-primary svg {
+      transition: transform 0.2s;
+    }
+    .btn-primary:hover svg {
+      transform: translateX(4px);
+    }
+
+    .btn-secondary {
+      background: rgba(17,24,39,0.3);
+      color: var(--fg);
+      border: 1px solid var(--border);
+      backdrop-filter: blur(8px);
+    }
+    .btn-secondary:hover {
+      background: rgba(17,24,39,0.6);
+      border-color: var(--muted);
+    }
+
+    .btn-tertiary {
+      background: transparent;
+      color: var(--muted);
+      border: 1px solid var(--border);
+    }
+    .btn-tertiary:hover {
+      background: rgba(17,24,39,0.3);
+      border-color: var(--muted);
+      color: var(--fg);
+    }
+
+    /* Bottom fade */
+    .hero-bottom-fade {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 8rem;
+      background: linear-gradient(to top, var(--bg), transparent);
+    }
+
+    /* Scroll indicator */
+    .hero-scroll {
+      position: absolute;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      color: rgba(107,114,128,0.5);
+      animation: fadeInUp 0.8s ease-out 0.6s both;
+    }
+    .hero-scroll span {
+      font-size: 0.75rem;
+      font-family: 'JetBrains Mono', monospace;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+    }
+    .hero-scroll-line {
+      width: 1px;
+      height: 2rem;
+      background: linear-gradient(to bottom, rgba(107,114,128,0.5), transparent);
+    }
+
+    /* Animations */
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes pulseGlow {
+      0%, 100% { opacity: 0.4; }
+      50%      { opacity: 0.8; }
+    }
+    @keyframes gridFade {
+      from { opacity: 0; }
+      to   { opacity: 0.06; }
+    }
+
+    /* Responsive */
+    @media (max-width: 640px) {
+      .hero-ctas {
+        flex-direction: column;
+      }
+      .btn {
+        width: 100%;
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <section class="hero">
+    <!-- Background grid -->
+    <div class="hero-grid"></div>
+    <!-- Radial gradient -->
+    <div class="hero-radial"></div>
+    <!-- Top glow -->
+    <div class="hero-glow"></div>
+
+    <!-- Content -->
+    <div class="hero-content">
+      <!-- Tag -->
+      <div>
+        <span class="hero-tag">
+          <span class="hero-tag-dot"></span>
+          Physical AI Command &amp; Control
+        </span>
+      </div>
+
+      <!-- Headline -->
+      <h1 class="hero-headline">PAI C2</h1>
+
+      <!-- Subheadline -->
+      <p class="hero-subheadline">The Operational Layer for Scalable Autonomy.</p>
+
+      <!-- Supporting line -->
+      <p class="hero-supporting">
+        Turning autonomous systems into governable, mission-ready infrastructure.
+      </p>
+
+      <!-- CTAs -->
+      <div class="hero-ctas">
+        <a href="#platform" class="btn btn-primary">
+          Explore the Platform
+          <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
+          </svg>
+        </a>
+        <a href="#architecture" class="btn btn-secondary">See Architecture</a>
+        <a href="#nvidia" class="btn btn-tertiary">NVIDIA Stack Integration</a>
+      </div>
+    </div>
+
+    <!-- Bottom fade -->
+    <div class="hero-bottom-fade"></div>
+
+    <!-- Scroll indicator -->
+    <div class="hero-scroll">
+      <span>Scroll</span>
+      <div class="hero-scroll-line"></div>
+    </div>
+  </section>
+</body>
+</html>
