@@ -85,7 +85,7 @@ export default function Solution() {
         </h3>
 
         {/* Capabilities grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-2 gap-6">
           {capabilities.map((cap, i) => (
             <div
               key={i}
