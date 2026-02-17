@@ -50,7 +50,7 @@ export default function Hero() {
         {/* CTAs */}
         <div className="animate-fade-in-up-delay-4 flex flex-col sm:flex-row items-center justify-center gap-4">
           <a
-            href="#platform"
+            href="#problem"
             className="group inline-flex items-center gap-2 px-8 py-4 bg-accent hover:bg-accent-light text-background font-semibold rounded-lg transition-all duration-200 hover:shadow-[0_0_24px_rgba(201,169,110,0.3)]"
           >
             Explore the Platform
@@ -78,7 +78,7 @@ export default function Hero() {
             href="#nvidia"
             className="inline-flex items-center gap-2 px-8 py-4 border border-border hover:border-accent/40 text-muted hover:text-foreground font-semibold rounded-lg transition-all duration-200 bg-transparent hover:bg-surface/30"
           >
-            NVIDIA Stack Integration
+            See NVIDIA Stack Integration
           </a>
         </div>
       </div>

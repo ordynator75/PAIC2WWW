@@ -32,940 +32,424 @@
       -moz-osx-font-smoothing: grayscale;
     }
 
-    /* ========== HERO ========== */
-    .hero {
-      position: relative;
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      overflow: hidden;
-    }
-
-    .hero-grid {
-      position: absolute;
-      inset: 0;
-      background-image:
-        linear-gradient(rgba(201,169,110,0.06) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(201,169,110,0.06) 1px, transparent 1px);
-      background-size: 64px 64px;
-      animation: gridFade 1.5s ease-out both;
-    }
-
-    .hero-radial {
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(ellipse at center, rgba(201,169,110,0.06) 0%, transparent 70%);
-    }
-
-    .hero-glow {
-      position: absolute;
-      top: 0;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 800px;
-      height: 400px;
-      background: rgba(201,169,110,0.05);
-      border-radius: 50%;
-      filter: blur(120px);
-      animation: pulseGlow 3s ease-in-out infinite;
-    }
-
-    .hero-content {
-      position: relative;
-      z-index: 10;
-      max-width: 64rem;
-      margin: 0 auto;
-      padding: 0 1.5rem;
-      text-align: center;
-    }
-
-    .hero-tag {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      padding: 0.5rem 1rem;
-      border-radius: 9999px;
-      border: 1px solid var(--border);
-      background: rgba(20,18,16,0.5);
-      backdrop-filter: blur(8px);
-      font-size: 0.875rem;
-      color: var(--muted);
-      font-family: 'JetBrains Mono', monospace;
-      letter-spacing: 0.05em;
-      margin-bottom: 2rem;
-      animation: fadeInUp 0.8s ease-out both;
-    }
-
-    .hero-tag-dot {
-      width: 0.5rem;
-      height: 0.5rem;
-      border-radius: 50%;
-      background: var(--accent);
-      animation: pulseGlow 3s ease-in-out infinite;
-    }
-
-    .hero-headline {
-      font-size: clamp(3rem, 8vw, 4.5rem);
-      font-weight: 800;
-      letter-spacing: -0.025em;
-      line-height: 1.1;
-      margin-bottom: 1.5rem;
-      color: var(--fg);
-      animation: fadeInUp 0.8s ease-out 0.15s both;
-    }
-
-    .hero-subheadline {
-      font-size: clamp(1.25rem, 3vw, 1.875rem);
-      font-weight: 600;
-      color: var(--accent);
-      margin-bottom: 1rem;
-      animation: fadeInUp 0.8s ease-out 0.3s both;
-    }
-
-    .hero-supporting {
-      font-size: clamp(1.125rem, 2.5vw, 1.25rem);
-      color: var(--muted);
-      max-width: 40rem;
-      margin: 0 auto 3rem;
-      line-height: 1.6;
-      animation: fadeInUp 0.8s ease-out 0.45s both;
-    }
-
-    .hero-ctas {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: center;
-      gap: 1rem;
-      animation: fadeInUp 0.8s ease-out 0.6s both;
-    }
-
-    .hero-bottom-fade {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      height: 8rem;
-      background: linear-gradient(to top, var(--bg), transparent);
-    }
-
-    .hero-scroll {
-      position: absolute;
-      bottom: 2rem;
-      left: 50%;
-      transform: translateX(-50%);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 0.5rem;
-      color: rgba(138,128,112,0.5);
-      animation: fadeInUp 0.8s ease-out 0.6s both;
-    }
-    .hero-scroll span {
-      font-size: 0.75rem;
-      font-family: 'JetBrains Mono', monospace;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-    }
-    .hero-scroll-line {
-      width: 1px;
-      height: 2rem;
-      background: linear-gradient(to bottom, rgba(138,128,112,0.5), transparent);
-    }
-
     /* ========== SHARED ========== */
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      padding: 1rem 2rem;
-      font-size: 1rem;
-      font-weight: 600;
-      border-radius: 0.5rem;
-      text-decoration: none;
-      transition: all 0.2s ease;
-      cursor: pointer;
-    }
-    .btn-primary {
-      background: var(--accent);
-      color: var(--bg);
-      border: none;
-    }
-    .btn-primary:hover {
-      background: var(--accent-light);
-      box-shadow: 0 0 24px rgba(201,169,110,0.3);
-    }
-    .btn-primary svg { transition: transform 0.2s; }
-    .btn-primary:hover svg { transform: translateX(4px); }
-    .btn-secondary {
-      background: rgba(20,18,16,0.3);
-      color: var(--fg);
-      border: 1px solid var(--border);
-      backdrop-filter: blur(8px);
-    }
-    .btn-secondary:hover {
-      background: rgba(20,18,16,0.6);
-      border-color: rgba(201,169,110,0.4);
-    }
-    .btn-tertiary {
-      background: transparent;
-      color: var(--muted);
-      border: 1px solid var(--border);
-    }
-    .btn-tertiary:hover {
-      background: rgba(20,18,16,0.3);
-      border-color: rgba(201,169,110,0.4);
-      color: var(--fg);
-    }
+    .section { position: relative; padding: 8rem 1.5rem; }
+    .section-inner { position: relative; z-index: 10; max-width: 64rem; margin: 0 auto; }
+    .section-header { text-align: center; margin-bottom: 5rem; }
 
     .section-tag {
-      display: inline-block;
-      padding: 0.375rem 1rem;
-      border-radius: 9999px;
-      border: 1px solid var(--border);
-      background: rgba(20,18,16,0.5);
-      font-size: 0.875rem;
-      color: var(--muted);
-      font-family: 'JetBrains Mono', monospace;
-      letter-spacing: 0.05em;
-      margin-bottom: 1.5rem;
+      display: inline-block; padding: 0.375rem 1rem; border-radius: 9999px;
+      border: 1px solid var(--border); background: rgba(20,18,16,0.5);
+      font-size: 0.875rem; color: var(--muted);
+      font-family: 'JetBrains Mono', monospace; letter-spacing: 0.05em; margin-bottom: 1.5rem;
     }
 
     .section-title {
-      font-size: clamp(1.875rem, 5vw, 3rem);
-      font-weight: 700;
-      letter-spacing: -0.025em;
-      margin-bottom: 1.5rem;
-      line-height: 1.2;
+      font-size: clamp(1.875rem, 5vw, 3rem); font-weight: 700;
+      letter-spacing: -0.025em; margin-bottom: 1.5rem; line-height: 1.2;
     }
 
-    .section-subtitle {
-      font-size: 1.125rem;
-      color: var(--muted);
-      max-width: 40rem;
-      margin: 0 auto;
-      line-height: 1.6;
-    }
-
+    .section-subtitle { font-size: 1.125rem; color: var(--muted); max-width: 40rem; margin: 0 auto; line-height: 1.6; }
     .accent-text { color: var(--accent); }
+    .accent-red-text { color: var(--accent-red); }
+    .divider-top { position: absolute; top: 0; left: 0; right: 0; height: 1px; background: linear-gradient(to right, transparent, var(--border), transparent); }
+    .grid-bg { position: absolute; inset: 0; background-image: linear-gradient(rgba(201,169,110,0.06) 1px, transparent 1px), linear-gradient(90deg, rgba(201,169,110,0.06) 1px, transparent 1px); background-size: 64px 64px; }
+    .grid-bg-faint { opacity: 0.03; }
+    .grid-bg-fainter { opacity: 0.02; }
 
-    /* ========== PLATFORM ========== */
-    .platform {
-      position: relative;
-      padding: 8rem 1.5rem;
-    }
+    .card { padding: 2rem; border-radius: 0.75rem; border: 1px solid var(--border); background: rgba(20,18,16,0.3); backdrop-filter: blur(8px); transition: all 0.3s ease; }
+    .card:hover { border-color: rgba(201,169,110,0.3); background: rgba(20,18,16,0.5); }
 
-    .platform-grid-bg {
-      position: absolute;
-      inset: 0;
-      opacity: 0.03;
-      background-image:
-        linear-gradient(rgba(201,169,110,1) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(201,169,110,1) 1px, transparent 1px);
-      background-size: 64px 64px;
-    }
+    .dot { width: 0.25rem; height: 0.25rem; border-radius: 50%; flex-shrink: 0; }
+    .dot-accent { background: rgba(201,169,110,0.6); }
+    .dot-red { background: rgba(212,69,58,0.6); }
+    .dot-lg { width: 0.5rem; height: 0.5rem; }
 
-    .platform-inner {
-      position: relative;
-      z-index: 10;
-      max-width: 72rem;
-      margin: 0 auto;
-    }
+    .list-item { display: flex; align-items: start; gap: 0.75rem; font-size: 0.875rem; color: var(--muted); }
+    .list-item .dot { margin-top: 0.45rem; }
 
-    .features-grid {
-      display: grid;
-      grid-template-columns: repeat(1, 1fr);
-      gap: 1.5rem;
-    }
+    .btn { display: inline-flex; align-items: center; gap: 0.5rem; padding: 1rem 2rem; font-size: 1rem; font-weight: 600; border-radius: 0.5rem; text-decoration: none; transition: all 0.2s ease; cursor: pointer; }
+    .btn-primary { background: var(--accent); color: var(--bg); border: none; }
+    .btn-primary:hover { background: var(--accent-light); box-shadow: 0 0 24px rgba(201,169,110,0.3); }
+    .btn-primary svg { transition: transform 0.2s; }
+    .btn-primary:hover svg { transform: translateX(4px); }
+    .btn-secondary { background: rgba(20,18,16,0.3); color: var(--fg); border: 1px solid var(--border); backdrop-filter: blur(8px); }
+    .btn-secondary:hover { background: rgba(20,18,16,0.6); border-color: rgba(201,169,110,0.4); }
+    .btn-tertiary { background: transparent; color: var(--muted); border: 1px solid var(--border); }
+    .btn-tertiary:hover { background: rgba(20,18,16,0.3); border-color: rgba(201,169,110,0.4); color: var(--fg); }
 
-    .feature-card {
-      padding: 2rem;
-      border-radius: 0.75rem;
-      border: 1px solid var(--border);
-      background: rgba(20,18,16,0.3);
-      backdrop-filter: blur(8px);
-      transition: all 0.3s ease;
-    }
-    .feature-card:hover {
-      border-color: rgba(201,169,110,0.3);
-      background: rgba(20,18,16,0.6);
-    }
+    .layer-row { position: relative; border-radius: 0.75rem; border: 1px solid var(--border); background: rgba(20,18,16,0.3); backdrop-filter: blur(8px); overflow: hidden; transition: all 0.3s ease; }
+    .layer-row:hover { border-color: rgba(201,169,110,0.3); background: rgba(20,18,16,0.5); }
+    .layer-row-bar { position: absolute; left: 0; top: 0; bottom: 0; width: 4px; background: rgba(201,169,110,0.2); transition: background 0.3s ease; }
+    .layer-row:hover .layer-row-bar { background: rgba(201,169,110,0.6); }
+    .layer-row-content { display: flex; flex-direction: column; gap: 0.5rem; padding: 1.5rem 1.5rem 1.5rem 2rem; }
+    .layer-row-num { font-size: 0.75rem; font-family: 'JetBrains Mono', monospace; color: rgba(138,128,112,0.6); width: 1.25rem; }
+    .layer-row-name { font-size: 0.875rem; font-weight: 600; color: var(--accent); text-transform: uppercase; letter-spacing: 0.1em; }
+    .layer-row-desc { font-size: 0.875rem; color: var(--muted); }
 
-    .feature-icon {
-      width: 3rem;
-      height: 3rem;
-      border-radius: 0.5rem;
-      background: rgba(201,169,110,0.1);
-      border: 1px solid rgba(201,169,110,0.2);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--accent);
-      margin-bottom: 1.25rem;
-    }
+    .cap-num { width: 2rem; height: 2rem; border-radius: 0.5rem; background: rgba(201,169,110,0.1); border: 1px solid rgba(201,169,110,0.2); display: flex; align-items: center; justify-content: center; color: var(--accent); font-size: 0.875rem; font-family: 'JetBrains Mono', monospace; font-weight: 700; }
 
-    .feature-title {
-      font-size: 1.125rem;
-      font-weight: 600;
-      margin-bottom: 0.75rem;
-    }
+    .cop-item { display: flex; align-items: center; gap: 1rem; padding: 1rem; border-radius: 0.5rem; border: 1px solid var(--border); background: rgba(10,10,10,0.5); transition: border-color 0.3s; }
+    .cop-item:hover { border-color: rgba(201,169,110,0.3); }
 
-    .feature-desc {
-      font-size: 0.875rem;
-      color: var(--muted);
-      line-height: 1.6;
-    }
+    .nvidia-tag { display: inline-block; padding: 0.25rem 0.625rem; border-radius: 0.375rem; background: rgba(201,169,110,0.1); color: var(--accent); font-size: 0.75rem; font-family: 'JetBrains Mono', monospace; letter-spacing: 0.05em; margin-bottom: 0.5rem; }
 
-    /* ========== ARCHITECTURE ========== */
-    .architecture {
-      position: relative;
-      padding: 8rem 1.5rem;
-    }
+    .overlay-item { display: flex; align-items: center; gap: 1rem; padding: 1rem; border-radius: 0.5rem; border: 1px solid var(--border); background: rgba(10,10,10,0.5); font-size: 0.875rem; font-weight: 500; transition: border-color 0.3s; }
+    .overlay-item:hover { border-color: rgba(201,169,110,0.3); }
 
-    .architecture-glow {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: 600px;
-      height: 600px;
-      background: rgba(201,169,110,0.03);
-      border-radius: 50%;
-      filter: blur(150px);
-    }
+    .principle-box { padding: 1.5rem; border-radius: 0.75rem; border: 1px solid rgba(201,169,110,0.3); background: rgba(201,169,110,0.05); }
 
-    .architecture-inner {
-      position: relative;
-      z-index: 10;
-      max-width: 64rem;
-      margin: 0 auto;
-    }
+    .pos-table { width: 100%; border-collapse: collapse; font-size: 0.875rem; }
+    .pos-table th { text-align: center; padding: 1rem; color: var(--muted); font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; letter-spacing: 0.05em; text-transform: uppercase; border-bottom: 1px solid var(--border); }
+    .pos-table th:first-child { text-align: left; padding-left: 1.5rem; }
+    .pos-table th:last-child { color: var(--accent); padding-right: 1.5rem; }
+    .pos-table td { padding: 0.75rem 1rem; text-align: center; border-bottom: 1px solid rgba(42,36,24,0.5); }
+    .pos-table td:first-child { text-align: left; padding-left: 1.5rem; }
+    .pos-table td:last-child { padding-right: 1.5rem; }
+    .pos-table tr:last-child td { border-bottom: none; }
+    .pos-table tr:hover { background: rgba(20,18,16,0.4); }
+    .pos-yes { color: var(--accent); font-weight: 500; }
+    .pos-partial { color: var(--muted); }
+    .pos-no { color: rgba(138,128,112,0.4); }
 
-    .arch-stack {
-      display: flex;
-      flex-direction: column;
-      gap: 0.75rem;
-    }
+    /* Hero */
+    .hero { position: relative; min-height: 100vh; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+    .hero-radial { position: absolute; inset: 0; background: radial-gradient(ellipse at center, rgba(201,169,110,0.06) 0%, transparent 70%); }
+    .hero-glow { position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 800px; height: 400px; background: rgba(201,169,110,0.05); border-radius: 50%; filter: blur(120px); animation: pulseGlow 3s ease-in-out infinite; }
+    .hero-content { position: relative; z-index: 10; max-width: 64rem; margin: 0 auto; padding: 0 1.5rem; text-align: center; }
+    .hero-tag { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.5rem 1rem; border-radius: 9999px; border: 1px solid var(--border); background: rgba(20,18,16,0.5); backdrop-filter: blur(8px); font-size: 0.875rem; color: var(--muted); font-family: 'JetBrains Mono', monospace; letter-spacing: 0.05em; margin-bottom: 2rem; animation: fadeInUp 0.8s ease-out both; }
+    .hero-tag-dot { width: 0.5rem; height: 0.5rem; border-radius: 50%; background: var(--accent); animation: pulseGlow 3s ease-in-out infinite; }
+    .hero-headline { font-size: clamp(3rem, 8vw, 4.5rem); font-weight: 800; letter-spacing: -0.025em; line-height: 1.1; margin-bottom: 1.5rem; color: var(--fg); animation: fadeInUp 0.8s ease-out 0.15s both; }
+    .hero-subheadline { font-size: clamp(1.25rem, 3vw, 1.875rem); font-weight: 600; color: var(--accent); margin-bottom: 1rem; animation: fadeInUp 0.8s ease-out 0.3s both; }
+    .hero-supporting { font-size: clamp(1.125rem, 2.5vw, 1.25rem); color: var(--muted); max-width: 40rem; margin: 0 auto 3rem; line-height: 1.6; animation: fadeInUp 0.8s ease-out 0.45s both; }
+    .hero-ctas { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 1rem; animation: fadeInUp 0.8s ease-out 0.6s both; }
+    .hero-bottom-fade { position: absolute; bottom: 0; left: 0; right: 0; height: 8rem; background: linear-gradient(to top, var(--bg), transparent); }
+    .hero-scroll { position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; gap: 0.5rem; color: rgba(138,128,112,0.5); animation: fadeInUp 0.8s ease-out 0.6s both; }
+    .hero-scroll span { font-size: 0.75rem; font-family: 'JetBrains Mono', monospace; letter-spacing: 0.15em; text-transform: uppercase; }
+    .hero-scroll-line { width: 1px; height: 2rem; background: linear-gradient(to bottom, rgba(138,128,112,0.5), transparent); }
 
-    .arch-layer {
-      position: relative;
-      border-radius: 0.75rem;
-      border: 1px solid var(--border);
-      background: rgba(20,18,16,0.3);
-      backdrop-filter: blur(8px);
-      overflow: hidden;
-      transition: all 0.3s ease;
-    }
-    .arch-layer:hover {
-      border-color: rgba(201,169,110,0.3);
-      background: rgba(20,18,16,0.5);
-    }
+    .footer { border-top: 1px solid var(--border); padding: 5rem 1.5rem; }
+    .footer-inner { max-width: 48rem; margin: 0 auto; text-align: center; }
+    .footer-tagline { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 1rem; font-size: 0.875rem; font-family: 'JetBrains Mono', monospace; letter-spacing: 0.05em; color: var(--muted); }
+    .footer-tagline-dot { width: 0.25rem; height: 0.25rem; border-radius: 50%; background: rgba(201,169,110,0.4); }
+    .footer-bottom { border-top: 1px solid var(--border); padding-top: 2rem; display: flex; flex-direction: column; align-items: center; gap: 1.5rem; }
+    .footer-brand { font-size: 1.25rem; font-weight: 700; letter-spacing: -0.025em; }
+    .footer-nav { display: flex; align-items: center; gap: 1.5rem; }
+    .footer-nav a { font-size: 0.875rem; color: var(--muted); text-decoration: none; transition: color 0.2s; }
+    .footer-nav a:hover { color: var(--fg); }
+    .footer-copy { font-size: 0.75rem; color: rgba(138,128,112,0.6); font-family: 'JetBrains Mono', monospace; }
 
-    .arch-layer-bar {
-      position: absolute;
-      left: 0;
-      top: 0;
-      bottom: 0;
-      width: 4px;
-      background: rgba(201,169,110,0.2);
-      transition: background 0.3s ease;
-    }
-    .arch-layer:hover .arch-layer-bar {
-      background: rgba(201,169,110,0.6);
-    }
+    @keyframes fadeInUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes pulseGlow { 0%, 100% { opacity: 0.4; } 50% { opacity: 0.8; } }
+    @keyframes gridFade { from { opacity: 0; } to { opacity: 0.06; } }
 
-    .arch-layer-content {
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-      padding: 1.5rem;
-      padding-left: 2rem;
+    @media (min-width: 640px) {
+      .grid-2 { grid-template-columns: repeat(2, 1fr); }
     }
-
-    .arch-layer-label {
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-      min-width: 12rem;
-    }
-
-    .arch-layer-num {
-      font-size: 0.75rem;
-      font-family: 'JetBrains Mono', monospace;
-      color: rgba(138,128,112,0.6);
-      width: 1.25rem;
-    }
-
-    .arch-layer-name {
-      font-size: 0.875rem;
-      font-weight: 600;
-      color: var(--accent);
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-    }
-
-    .arch-layer-items {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-    }
-
-    .arch-item {
-      padding: 0.375rem 0.75rem;
-      border-radius: 0.375rem;
-      border: 1px solid var(--border);
-      background: rgba(10,10,10,0.5);
-      font-size: 0.875rem;
-      color: var(--muted);
-      font-family: 'JetBrains Mono', monospace;
-      transition: all 0.3s ease;
-    }
-    .arch-layer:hover .arch-item {
-      color: var(--fg);
-    }
-
-    .arch-connectors {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 2rem;
-      margin-top: 4rem;
-    }
-
-    .arch-connector {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 0.5rem;
-    }
-
-    .arch-connector-line {
-      width: 1px;
-      height: 2rem;
-      background: linear-gradient(to bottom, rgba(201,169,110,0.4), transparent);
-    }
-
-    .arch-connector-label {
-      font-size: 0.75rem;
-      font-family: 'JetBrains Mono', monospace;
-      color: rgba(138,128,112,0.5);
-      letter-spacing: 0.1em;
-    }
-
-    .arch-connector-divider {
-      flex: 1;
-      height: 1px;
-      background: linear-gradient(to right, transparent, rgba(201,169,110,0.2), transparent);
-    }
-
-    /* ========== NVIDIA ========== */
-    .nvidia {
-      position: relative;
-      padding: 8rem 1.5rem;
-    }
-
-    .nvidia-grid-bg {
-      position: absolute;
-      inset: 0;
-      opacity: 0.02;
-      background-image:
-        linear-gradient(rgba(201,169,110,1) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(201,169,110,1) 1px, transparent 1px);
-      background-size: 64px 64px;
-    }
-
-    .nvidia-divider {
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 1px;
-      background: linear-gradient(to right, transparent, var(--border), transparent);
-    }
-
-    .nvidia-inner {
-      position: relative;
-      z-index: 10;
-      max-width: 72rem;
-      margin: 0 auto;
-    }
-
-    .nvidia-card {
-      padding: 2rem;
-      border-radius: 0.75rem;
-      border: 1px solid var(--border);
-      background: rgba(20,18,16,0.3);
-      backdrop-filter: blur(8px);
-      transition: all 0.3s ease;
-    }
-    .nvidia-card:hover {
-      border-color: rgba(201,169,110,0.3);
-      background: rgba(20,18,16,0.5);
-    }
-
-    .nvidia-card-tag {
-      display: inline-block;
-      padding: 0.25rem 0.625rem;
-      border-radius: 0.375rem;
-      background: rgba(201,169,110,0.1);
-      color: var(--accent);
-      font-size: 0.75rem;
-      font-family: 'JetBrains Mono', monospace;
-      letter-spacing: 0.05em;
-      margin-bottom: 1rem;
-    }
-
-    .nvidia-card-title {
-      font-size: 1.125rem;
-      font-weight: 600;
-      margin-bottom: 0.75rem;
-    }
-
-    .nvidia-card-desc {
-      font-size: 0.875rem;
-      color: var(--muted);
-      line-height: 1.6;
-    }
-
-    .nvidia-cta {
-      margin-top: 4rem;
-      text-align: center;
-    }
-
-    .nvidia-cta-box {
-      display: inline-flex;
-      align-items: center;
-      gap: 1rem;
-      padding: 1.5rem;
-      border-radius: 0.75rem;
-      border: 1px solid var(--border);
-      background: rgba(20,18,16,0.3);
-      backdrop-filter: blur(8px);
-    }
-
-    .nvidia-cta-dot {
-      width: 0.75rem;
-      height: 0.75rem;
-      border-radius: 50%;
-      background: rgba(201,169,110,0.6);
-      animation: pulseGlow 3s ease-in-out infinite;
-    }
-
-    .nvidia-cta-text {
-      font-size: 0.875rem;
-      color: var(--muted);
-    }
-
-    /* ========== FOOTER ========== */
-    .footer {
-      border-top: 1px solid var(--border);
-      padding: 4rem 1.5rem;
-    }
-
-    .footer-inner {
-      max-width: 72rem;
-      margin: 0 auto;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 2rem;
-    }
-
-    .footer-brand {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 0.5rem;
-    }
-
-    .footer-brand-name {
-      font-size: 1.25rem;
-      font-weight: 700;
-      letter-spacing: -0.025em;
-    }
-
-    .footer-brand-tagline {
-      font-size: 0.875rem;
-      color: var(--muted);
-    }
-
-    .footer-nav {
-      display: flex;
-      align-items: center;
-      gap: 2rem;
-    }
-
-    .footer-nav a {
-      font-size: 0.875rem;
-      color: var(--muted);
-      text-decoration: none;
-      transition: color 0.2s ease;
-    }
-    .footer-nav a:hover {
-      color: var(--fg);
-    }
-
-    .footer-copy {
-      font-size: 0.75rem;
-      color: rgba(138,128,112,0.6);
-      font-family: 'JetBrains Mono', monospace;
-    }
-
-    /* ========== ANIMATIONS ========== */
-    @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(24px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-    @keyframes pulseGlow {
-      0%, 100% { opacity: 0.4; }
-      50%      { opacity: 0.8; }
-    }
-    @keyframes gridFade {
-      from { opacity: 0; }
-      to   { opacity: 0.06; }
-    }
-
-    /* ========== RESPONSIVE ========== */
     @media (min-width: 768px) {
-      .features-grid { grid-template-columns: repeat(2, 1fr); }
-      .arch-layer-content { flex-direction: row; align-items: center; }
-      .footer-inner { flex-direction: row; justify-content: space-between; }
-      .footer-brand { align-items: flex-start; }
+      .layer-row-content { flex-direction: row; align-items: center; }
+      .overlay-2col { grid-template-columns: 1fr 1fr; }
+      .footer-bottom { flex-direction: row; justify-content: space-between; }
     }
-
-    @media (min-width: 1024px) {
-      .features-grid { grid-template-columns: repeat(3, 1fr); }
-    }
-
     @media (max-width: 640px) {
       .hero-ctas { flex-direction: column; }
       .btn { width: 100%; justify-content: center; }
+      .pos-table { font-size: 0.75rem; }
+      .pos-table th, .pos-table td { padding: 0.5rem; }
     }
   </style>
 </head>
 <body>
 
-  <!-- ========== HERO ========== -->
+  <!-- 1. HERO -->
   <section class="hero">
-    <div class="hero-grid"></div>
+    <div class="grid-bg" style="animation: gridFade 1.5s ease-out both;"></div>
     <div class="hero-radial"></div>
     <div class="hero-glow"></div>
-
     <div class="hero-content">
-      <div>
-        <span class="hero-tag">
-          <span class="hero-tag-dot"></span>
-          Physical AI Command &amp; Control
-        </span>
-      </div>
+      <div><span class="hero-tag"><span class="hero-tag-dot"></span> Physical AI Command &amp; Control</span></div>
       <h1 class="hero-headline">PAI C2</h1>
       <p class="hero-subheadline">The Operational Layer for Scalable Autonomy.</p>
-      <p class="hero-supporting">
-        Turning autonomous systems into governable, mission-ready infrastructure.
-      </p>
+      <p class="hero-supporting">Turning autonomous systems into governable, mission-ready infrastructure.</p>
       <div class="hero-ctas">
-        <a href="#platform" class="btn btn-primary">
-          Explore the Platform
-          <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
-          </svg>
-        </a>
+        <a href="#problem" class="btn btn-primary">Explore the Platform <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg></a>
         <a href="#architecture" class="btn btn-secondary">See Architecture</a>
-        <a href="#nvidia" class="btn btn-tertiary">NVIDIA Stack Integration</a>
+        <a href="#nvidia" class="btn btn-tertiary">See NVIDIA Stack Integration</a>
       </div>
     </div>
-
     <div class="hero-bottom-fade"></div>
-    <div class="hero-scroll">
-      <span>Scroll</span>
-      <div class="hero-scroll-line"></div>
+    <div class="hero-scroll"><span>Scroll</span><div class="hero-scroll-line"></div></div>
+  </section>
+
+  <!-- 2. PROBLEM -->
+  <section id="problem" class="section">
+    <div class="divider-top"></div>
+    <div class="section-inner">
+      <div class="section-header">
+        <span class="section-tag">Problem</span>
+        <h2 class="section-title">Autonomous robots <span class="accent-red-text">do not scale</span> operationally.</h2>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr;gap:1.5rem;" class="grid-2">
+        <div class="card"><h3 style="font-size:1.125rem;font-weight:600;margin-bottom:1rem;">Dashboards instead of operations</h3><div style="display:flex;flex-direction:column;gap:0.5rem;"><div class="list-item"><span class="dot dot-red"></span>Visibility without structured mission logic.</div><div class="list-item"><span class="dot dot-red"></span>Ad-hoc operator decisions.</div><div class="list-item"><span class="dot dot-red"></span>No accumulated operational intelligence.</div></div></div>
+        <div class="card"><h3 style="font-size:1.125rem;font-weight:600;margin-bottom:1rem;">Vendor-bound integrations</h3><div style="display:flex;flex-direction:column;gap:0.5rem;"><div class="list-item"><span class="dot dot-red"></span>Every robot = new integration.</div><div class="list-item"><span class="dot dot-red"></span>No portable mission layer.</div></div></div>
+        <div class="card"><h3 style="font-size:1.125rem;font-weight:600;margin-bottom:1rem;">Scale creates fatigue</h3><div style="display:flex;flex-direction:column;gap:0.5rem;"><div class="list-item"><span class="dot dot-red"></span>More robots &rarr; more alerts &rarr; reduced operator efficiency.</div></div></div>
+        <div class="card"><h3 style="font-size:1.125rem;font-weight:600;margin-bottom:1rem;">No accountability layer</h3><div style="display:flex;flex-direction:column;gap:0.5rem;"><div class="list-item"><span class="dot dot-red"></span>No structured decision trace.</div><div class="list-item"><span class="dot dot-red"></span>No governance-ready deployment model.</div></div></div>
+      </div>
     </div>
   </section>
 
-  <!-- ========== PLATFORM ========== -->
-  <section id="platform" class="platform">
-    <div class="platform-grid-bg"></div>
-    <div class="platform-inner">
-      <div style="text-align:center;margin-bottom:5rem;">
-        <span class="section-tag">Platform</span>
-        <h2 class="section-title">
-          Everything you need to <span class="accent-text">command autonomy</span>
-        </h2>
-        <p class="section-subtitle">
-          A unified control plane designed from the ground up for physical AI operations at scale.
-        </p>
+  <!-- 3. SOLUTION -->
+  <section id="solution" class="section">
+    <div class="grid-bg grid-bg-faint"></div>
+    <div class="section-inner">
+      <div class="section-header">
+        <span class="section-tag">Solution</span>
+        <h2 class="section-title">A <span class="accent-text">Command Layer</span> for Physical AI</h2>
       </div>
+      <div class="card" style="max-width:36rem;margin:0 auto 4rem;text-align:left;">
+        <p style="font-size:0.875rem;font-family:'JetBrains Mono',monospace;color:var(--muted);margin-bottom:1rem;text-transform:uppercase;letter-spacing:0.05em;">PAI C2 is not:</p>
+        <div style="display:flex;align-items:center;gap:0.75rem;color:var(--muted);margin-bottom:0.5rem;"><span style="color:var(--accent-red);">&times;</span> a robot dashboard</div>
+        <div style="display:flex;align-items:center;gap:0.75rem;color:var(--muted);margin-bottom:0.5rem;"><span style="color:var(--accent-red);">&times;</span> a fleet manager</div>
+        <div style="display:flex;align-items:center;gap:0.75rem;color:var(--muted);margin-bottom:0.5rem;"><span style="color:var(--accent-red);">&times;</span> an autonomy runtime</div>
+        <p style="color:var(--fg);font-weight:500;margin-top:1.5rem;">It is a mission-oriented command and governance layer operating above autonomy.</p>
+      </div>
+      <h3 style="text-align:center;font-size:1.25rem;font-weight:600;margin-bottom:2.5rem;">Core Capabilities</h3>
+      <div style="display:grid;grid-template-columns:1fr;gap:1.5rem;" class="grid-2">
+        <div class="card"><div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:1rem;"><span class="cap-num">01</span><h4 style="font-size:1.125rem;font-weight:600;">Mission Engine</h4></div><div style="display:flex;flex-direction:column;gap:0.5rem;"><div class="list-item"><span class="dot dot-accent"></span>Structured missions as system objects.</div><div class="list-item"><span class="dot dot-accent"></span>Sequences, fallbacks, retries, escalation hooks.</div></div></div>
+        <div class="card"><div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:1rem;"><span class="cap-num">02</span><h4 style="font-size:1.125rem;font-weight:600;">Capability-Based Abstraction</h4></div><div style="display:flex;flex-direction:column;gap:0.5rem;"><div class="list-item"><span class="dot dot-accent"></span>Vendor-neutral robot control through capabilities.</div><div class="list-item"><span class="dot dot-accent"></span>Portable missions across heterogeneous fleets.</div></div></div>
+        <div class="card"><div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:1rem;"><span class="cap-num">03</span><h4 style="font-size:1.125rem;font-weight:600;">Common Operating Picture (COP)</h4></div><div style="display:flex;flex-direction:column;gap:0.5rem;"><div class="list-item"><span class="dot dot-accent"></span>Unified decision context.</div><div class="list-item"><span class="dot dot-accent"></span>Attention directed by material state change.</div></div></div>
+        <div class="card"><div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:1rem;"><span class="cap-num">04</span><h4 style="font-size:1.125rem;font-weight:600;">Governance Engine</h4></div><div style="display:flex;flex-direction:column;gap:0.5rem;"><div class="list-item"><span class="dot dot-accent"></span>Policy enforcement.</div><div class="list-item"><span class="dot dot-accent"></span>Escalation logic.</div><div class="list-item"><span class="dot dot-accent"></span>Decision traceability.</div></div></div>
+      </div>
+    </div>
+  </section>
 
-      <div class="features-grid">
-        <!-- Feature 1 -->
-        <div class="feature-card">
-          <div class="feature-icon">
-            <svg width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M9 17.25v1.007a3 3 0 01-.879 2.122L7.5 21h9l-.621-.621A3 3 0 0115 18.257V17.25m6-12V15a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 15V5.25m18 0A2.25 2.25 0 0018.75 3H5.25A2.25 2.25 0 003 5.25m18 0V12a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 12V5.25"/>
-            </svg>
-          </div>
-          <h3 class="feature-title">Mission Control Dashboard</h3>
-          <p class="feature-desc">Centralized command interface for monitoring and controlling fleets of autonomous agents across distributed environments.</p>
+  <!-- 4. COP -->
+  <section id="cop" class="section">
+    <div class="divider-top"></div>
+    <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:500px;height:500px;background:rgba(201,169,110,0.03);border-radius:50%;filter:blur(150px);"></div>
+    <div class="section-inner" style="max-width:48rem;">
+      <div class="section-header">
+        <span class="section-tag">COP</span>
+        <h2 class="section-title">Unified Operational <span class="accent-text">Situation View</span></h2>
+      </div>
+      <div class="card" style="padding:2.5rem;">
+        <p style="font-size:0.875rem;font-family:'JetBrains Mono',monospace;color:var(--muted);margin-bottom:1.5rem;text-transform:uppercase;letter-spacing:0.05em;">COP integrates:</p>
+        <div style="display:flex;flex-direction:column;gap:0.75rem;margin-bottom:2.5rem;">
+          <div class="cop-item"><span class="dot dot-lg dot-accent"></span><span style="font-weight:500;">Spatial layer</span></div>
+          <div class="cop-item"><span class="dot dot-lg dot-accent"></span><span style="font-weight:500;">Robot state</span></div>
+          <div class="cop-item"><span class="dot dot-lg dot-accent"></span><span style="font-weight:500;">Events &amp; alerts</span></div>
+          <div class="cop-item"><span class="dot dot-lg dot-accent"></span><span style="font-weight:500;">Active missions</span></div>
+          <div class="cop-item"><span class="dot dot-lg dot-accent"></span><span style="font-weight:500;">Human intervention status</span></div>
         </div>
-
-        <!-- Feature 2 -->
-        <div class="feature-card">
-          <div class="feature-icon">
-            <svg width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6A2.25 2.25 0 016 3.75h2.25A2.25 2.25 0 0110.5 6v2.25a2.25 2.25 0 01-2.25 2.25H6a2.25 2.25 0 01-2.25-2.25V6zM3.75 15.75A2.25 2.25 0 016 13.5h2.25a2.25 2.25 0 012.25 2.25V18a2.25 2.25 0 01-2.25 2.25H6A2.25 2.25 0 013.75 18v-2.25zM13.5 6a2.25 2.25 0 012.25-2.25H18A2.25 2.25 0 0120.25 6v2.25A2.25 2.25 0 0118 10.5h-2.25a2.25 2.25 0 01-2.25-2.25V6zM13.5 15.75a2.25 2.25 0 012.25-2.25H18a2.25 2.25 0 012.25 2.25V18A2.25 2.25 0 0118 20.25h-2.25a2.25 2.25 0 01-2.25-2.25v-2.25z"/>
-            </svg>
-          </div>
-          <h3 class="feature-title">Fleet Orchestration</h3>
-          <p class="feature-desc">Coordinate hundreds of physical AI agents simultaneously with policy-driven task allocation and real-time rebalancing.</p>
-        </div>
-
-        <!-- Feature 3 -->
-        <div class="feature-card">
-          <div class="feature-icon">
-            <svg width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z"/>
-            </svg>
-          </div>
-          <h3 class="feature-title">Safety &amp; Governance</h3>
-          <p class="feature-desc">Built-in safety envelopes, kill switches, and compliance frameworks. Every action auditable, every decision traceable.</p>
-        </div>
-
-        <!-- Feature 4 -->
-        <div class="feature-card">
-          <div class="feature-icon">
-            <svg width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M7.5 21L3 16.5m0 0L7.5 12M3 16.5h13.5m0-13.5L21 7.5m0 0L16.5 12M21 7.5H7.5"/>
-            </svg>
-          </div>
-          <h3 class="feature-title">Edge-Cloud Sync</h3>
-          <p class="feature-desc">Seamless state synchronization between edge devices and cloud infrastructure with conflict resolution and offline resilience.</p>
-        </div>
-
-        <!-- Feature 5 -->
-        <div class="feature-card">
-          <div class="feature-icon">
-            <svg width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 3v11.25A2.25 2.25 0 006 16.5h2.25M3.75 3h-1.5m1.5 0h16.5m0 0h1.5m-1.5 0v11.25A2.25 2.25 0 0118 16.5h-2.25m-7.5 0h7.5m-7.5 0l-1 3m8.5-3l1 3m0 0l.5 1.5m-.5-1.5h-9.5m0 0l-.5 1.5m.75-9l3-3 2.148 2.148A12.061 12.061 0 0116.5 7.605"/>
-            </svg>
-          </div>
-          <h3 class="feature-title">Telemetry &amp; Analytics</h3>
-          <p class="feature-desc">Real-time telemetry streams, predictive maintenance signals, and operational analytics across your entire autonomous fleet.</p>
-        </div>
-
-        <!-- Feature 6 -->
-        <div class="feature-card">
-          <div class="feature-icon">
-            <svg width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M14.25 9.75L16.5 12l-2.25 2.25m-4.5 0L7.5 12l2.25-2.25M6 20.25h12A2.25 2.25 0 0020.25 18V6A2.25 2.25 0 0018 3.75H6A2.25 2.25 0 003.75 6v12A2.25 2.25 0 006 20.25z"/>
-            </svg>
-          </div>
-          <h3 class="feature-title">API-First Design</h3>
-          <p class="feature-desc">RESTful and gRPC APIs for full programmatic control. Integrate with existing DevOps pipelines, CI/CD, and monitoring stacks.</p>
+        <div style="border-top:1px solid var(--border);padding-top:2rem;display:flex;flex-direction:column;gap:0.75rem;">
+          <p style="display:flex;align-items:center;gap:0.75rem;font-size:0.875rem;color:var(--muted);"><span style="color:var(--accent-red);">&times;</span> Not data streams.</p>
+          <p style="display:flex;align-items:center;gap:0.75rem;font-size:0.875rem;font-weight:600;"><span style="color:var(--accent);">&#10003;</span> One decision context.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ========== ARCHITECTURE ========== -->
-  <section id="architecture" class="architecture">
-    <div class="architecture-glow"></div>
-    <div class="architecture-inner">
-      <div style="text-align:center;margin-bottom:5rem;">
+  <!-- 5. ARCHITECTURE -->
+  <section id="architecture" class="section">
+    <div class="grid-bg grid-bg-faint"></div>
+    <div class="section-inner">
+      <div class="section-header" style="margin-bottom:2rem;">
         <span class="section-tag">Architecture</span>
-        <h2 class="section-title">
-          Built in <span class="accent-text">layers</span>, deployed as one
-        </h2>
-        <p class="section-subtitle">
-          A modular, layered architecture that scales from a single robot to thousands of autonomous agents across geographies.
-        </p>
+        <h2 class="section-title">Autonomy by <span class="accent-text">Default</span></h2>
       </div>
-
-      <div class="arch-stack">
-        <!-- Layer 5 -->
-        <div class="arch-layer">
-          <div class="arch-layer-bar"></div>
-          <div class="arch-layer-content">
-            <div class="arch-layer-label">
-              <span class="arch-layer-num">05</span>
-              <span class="arch-layer-name">Applications</span>
-            </div>
-            <div class="arch-layer-items">
-              <span class="arch-item">Mission Control UI</span>
-              <span class="arch-item">Fleet Manager</span>
-              <span class="arch-item">Analytics Dashboard</span>
-              <span class="arch-item">Policy Editor</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Layer 4 -->
-        <div class="arch-layer">
-          <div class="arch-layer-bar"></div>
-          <div class="arch-layer-content">
-            <div class="arch-layer-label">
-              <span class="arch-layer-num">04</span>
-              <span class="arch-layer-name">API Gateway</span>
-            </div>
-            <div class="arch-layer-items">
-              <span class="arch-item">REST / gRPC</span>
-              <span class="arch-item">WebSocket Streams</span>
-              <span class="arch-item">Auth &amp; RBAC</span>
-              <span class="arch-item">Rate Limiting</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Layer 3 -->
-        <div class="arch-layer">
-          <div class="arch-layer-bar"></div>
-          <div class="arch-layer-content">
-            <div class="arch-layer-label">
-              <span class="arch-layer-num">03</span>
-              <span class="arch-layer-name">Core Services</span>
-            </div>
-            <div class="arch-layer-items">
-              <span class="arch-item">Orchestrator</span>
-              <span class="arch-item">Task Scheduler</span>
-              <span class="arch-item">State Manager</span>
-              <span class="arch-item">Safety Engine</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Layer 2 -->
-        <div class="arch-layer">
-          <div class="arch-layer-bar"></div>
-          <div class="arch-layer-content">
-            <div class="arch-layer-label">
-              <span class="arch-layer-num">02</span>
-              <span class="arch-layer-name">Infrastructure</span>
-            </div>
-            <div class="arch-layer-items">
-              <span class="arch-item">Edge Runtime</span>
-              <span class="arch-item">Cloud Compute</span>
-              <span class="arch-item">Message Bus</span>
-              <span class="arch-item">Data Lake</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Layer 1 -->
-        <div class="arch-layer">
-          <div class="arch-layer-bar"></div>
-          <div class="arch-layer-content">
-            <div class="arch-layer-label">
-              <span class="arch-layer-num">01</span>
-              <span class="arch-layer-name">Hardware Layer</span>
-            </div>
-            <div class="arch-layer-items">
-              <span class="arch-item">NVIDIA Jetson / IGX</span>
-              <span class="arch-item">Sensors &amp; Actuators</span>
-              <span class="arch-item">Network Fabric</span>
-              <span class="arch-item">GPU Clusters</span>
-            </div>
-          </div>
-        </div>
+      <div class="card" style="max-width:36rem;margin:0 auto 4rem;text-align:center;">
+        <h3 style="font-size:1.25rem;font-weight:600;color:var(--accent);margin-bottom:1rem;">Human Over the Loop</h3>
+        <p style="color:var(--muted);line-height:1.6;">Autonomy executes within defined policies.<br>Human intervention occurs when thresholds are exceeded.</p>
       </div>
-
-      <!-- Connectors -->
-      <div class="arch-connectors">
-        <div class="arch-connector">
-          <div class="arch-connector-line"></div>
-          <span class="arch-connector-label">EDGE</span>
-        </div>
-        <div class="arch-connector-divider"></div>
-        <div class="arch-connector">
-          <div class="arch-connector-line"></div>
-          <span class="arch-connector-label">CLOUD</span>
-        </div>
-        <div class="arch-connector-divider"></div>
-        <div class="arch-connector">
-          <div class="arch-connector-line"></div>
-          <span class="arch-connector-label">FLEET</span>
-        </div>
+      <h3 style="text-align:center;font-size:1.125rem;font-weight:600;margin-bottom:2.5rem;font-family:'JetBrains Mono',monospace;letter-spacing:0.05em;">Logical Layers</h3>
+      <div style="display:flex;flex-direction:column;gap:0.75rem;">
+        <div class="layer-row"><div class="layer-row-bar"></div><div class="layer-row-content"><div style="display:flex;align-items:center;gap:0.75rem;min-width:16rem;"><span class="layer-row-num">05</span><span class="layer-row-name">Audit &amp; Memory Layer</span></div><span class="layer-row-desc">Incident graph, replay, structured traceability.</span></div></div>
+        <div class="layer-row"><div class="layer-row-bar"></div><div class="layer-row-content"><div style="display:flex;align-items:center;gap:0.75rem;min-width:16rem;"><span class="layer-row-num">04</span><span class="layer-row-name">Escalation Layer</span></div><span class="layer-row-desc">Supervised intervention (Human-over-the-loop).</span></div></div>
+        <div class="layer-row"><div class="layer-row-bar"></div><div class="layer-row-content"><div style="display:flex;align-items:center;gap:0.75rem;min-width:16rem;"><span class="layer-row-num">03</span><span class="layer-row-name">Policy Layer</span></div><span class="layer-row-desc">Boundaries, constraints, escalation rules.</span></div></div>
+        <div class="layer-row"><div class="layer-row-bar"></div><div class="layer-row-content"><div style="display:flex;align-items:center;gap:0.75rem;min-width:16rem;"><span class="layer-row-num">02</span><span class="layer-row-name">Command Layer</span></div><span class="layer-row-desc">Mission orchestration and intent management.</span></div></div>
+        <div class="layer-row"><div class="layer-row-bar"></div><div class="layer-row-content"><div style="display:flex;align-items:center;gap:0.75rem;min-width:16rem;"><span class="layer-row-num">01</span><span class="layer-row-name">Execution Layer</span></div><span class="layer-row-desc">Robots, edge autonomy, local AI stacks.</span></div></div>
       </div>
     </div>
   </section>
 
-  <!-- ========== NVIDIA ========== -->
-  <section id="nvidia" class="nvidia">
-    <div class="nvidia-grid-bg"></div>
-    <div class="nvidia-divider"></div>
-    <div class="nvidia-inner">
-      <div style="text-align:center;margin-bottom:5rem;">
+  <!-- 6. NVIDIA -->
+  <section id="nvidia" class="section">
+    <div class="divider-top"></div>
+    <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:600px;height:600px;background:rgba(201,169,110,0.03);border-radius:50%;filter:blur(150px);"></div>
+    <div class="section-inner">
+      <div class="section-header">
         <span class="section-tag">NVIDIA Stack</span>
-        <h2 class="section-title">
-          Powered by <span class="accent-text">NVIDIA</span>
-        </h2>
-        <p class="section-subtitle">
-          Deep integration across the NVIDIA ecosystem — from edge inference on Jetson to large-scale simulation with Isaac and fleet optimization with cuOpt.
-        </p>
+        <h2 class="section-title">NVIDIA Physical AI Stack — <span class="accent-text">Technology We Leverage</span></h2>
+        <p class="section-subtitle">PAI C2 is designed to integrate across the NVIDIA Physical AI stack.</p>
       </div>
-
-      <div class="features-grid">
-        <div class="nvidia-card">
-          <span class="nvidia-card-tag">Edge AI</span>
-          <h3 class="nvidia-card-title">NVIDIA Jetson</h3>
-          <p class="nvidia-card-desc">Native support for Jetson Orin and next-gen modules. Run inference, perception, and decision-making at the edge with full PAI C2 agent runtime.</p>
-        </div>
-
-        <div class="nvidia-card">
-          <span class="nvidia-card-tag">Simulation</span>
-          <h3 class="nvidia-card-title">NVIDIA Isaac</h3>
-          <p class="nvidia-card-desc">Tight integration with Isaac Sim for digital twin environments. Test fleet behaviors, train policies, and validate missions before real-world deployment.</p>
-        </div>
-
-        <div class="nvidia-card">
-          <span class="nvidia-card-tag">Vision AI</span>
-          <h3 class="nvidia-card-title">NVIDIA Metropolis</h3>
-          <p class="nvidia-card-desc">Leverage Metropolis vision pipelines for perception at scale. Seamless video analytics integration for surveillance, inspection, and monitoring use cases.</p>
-        </div>
-
-        <div class="nvidia-card">
-          <span class="nvidia-card-tag">Industrial</span>
-          <h3 class="nvidia-card-title">NVIDIA IGX</h3>
-          <p class="nvidia-card-desc">Enterprise-grade edge computing with IGX Orin. Built for industrial environments requiring functional safety (ISO 13849) and real-time determinism.</p>
-        </div>
-
-        <div class="nvidia-card">
-          <span class="nvidia-card-tag">Optimization</span>
-          <h3 class="nvidia-card-title">NVIDIA cuOpt</h3>
-          <p class="nvidia-card-desc">GPU-accelerated route optimization and task scheduling. Solve complex fleet logistics problems in real-time across thousands of agents.</p>
-        </div>
-
-        <div class="nvidia-card">
-          <span class="nvidia-card-tag">Inference</span>
-          <h3 class="nvidia-card-title">NVIDIA CUDA &amp; TensorRT</h3>
-          <p class="nvidia-card-desc">Accelerated model inference with TensorRT and CUDA. Optimize perception and planning models for maximum throughput on NVIDIA GPUs.</p>
-        </div>
+      <div style="display:flex;flex-direction:column;gap:1rem;">
+        <div class="layer-row"><div class="layer-row-bar"></div><div class="layer-row-content"><div style="min-width:14rem;"><span class="nvidia-tag">Simulation</span><h3 style="font-size:1rem;font-weight:600;">NVIDIA Isaac Sim</h3></div><span class="layer-row-desc">Operational scenario validation before production deployment.</span></div></div>
+        <div class="layer-row"><div class="layer-row-bar"></div><div class="layer-row-content"><div style="min-width:14rem;"><span class="nvidia-tag">World Modeling</span><h3 style="font-size:1rem;font-weight:600;">NVIDIA Cosmos</h3></div><span class="layer-row-desc">Context-level signals for mission reasoning.</span></div></div>
+        <div class="layer-row"><div class="layer-row-bar"></div><div class="layer-row-content"><div style="min-width:14rem;"><span class="nvidia-tag">AI Orchestration</span><h3 style="font-size:1rem;font-weight:600;">NVIDIA OSMO</h3></div><span class="layer-row-desc">Structured retraining based on operational data.</span></div></div>
+        <div class="layer-row"><div class="layer-row-bar"></div><div class="layer-row-content"><div style="min-width:14rem;"><span class="nvidia-tag">Local Compute</span><h3 style="font-size:1rem;font-weight:600;">NVIDIA DGX Spark</h3></div><span class="layer-row-desc">Local inference and PoC environments.</span></div></div>
+        <div class="layer-row"><div class="layer-row-bar"></div><div class="layer-row-content"><div style="min-width:14rem;"><span class="nvidia-tag">Edge Runtime</span><h3 style="font-size:1rem;font-weight:600;">NVIDIA Jetson Orin / Jetson Thor</h3></div><span class="layer-row-desc">Edge autonomy execution supervised by C2.</span></div></div>
       </div>
+      <div class="card" style="max-width:40rem;margin:4rem auto 0;">
+        <p style="font-weight:500;margin-bottom:0.75rem;"><span class="accent-text">NVIDIA</span> provides perception, simulation, and compute.</p>
+        <p style="font-weight:500;margin-bottom:2rem;"><span class="accent-text">PAI C2</span> provides operational command.</p>
+        <p style="font-size:0.75rem;color:rgba(138,128,112,0.6);line-height:1.6;">NVIDIA, Isaac Sim, Jetson Orin, Jetson Thor, DGX Spark, Cosmos, and OSMO are trademarks of NVIDIA Corporation. PAI C2 is an independent platform and is not affiliated with or endorsed by NVIDIA.</p>
+      </div>
+    </div>
+  </section>
 
-      <div class="nvidia-cta">
-        <div class="nvidia-cta-box">
-          <div class="nvidia-cta-dot"></div>
-          <p class="nvidia-cta-text">
-            PAI C2 is an <span style="color:var(--fg);font-weight:500;">NVIDIA Inception</span> partner.
-            Full Jetson, Isaac &amp; Metropolis certification in progress.
-          </p>
+  <!-- 7. SECURITY OVERLAY -->
+  <section id="security" class="section">
+    <div class="grid-bg grid-bg-fainter"></div>
+    <div class="section-inner">
+      <div class="section-header">
+        <span class="section-tag">Open Core</span>
+        <h2 class="section-title">Open Core + <span class="accent-text">Security Overlay</span></h2>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr;gap:2rem;" class="overlay-2col">
+        <div>
+          <div class="card" style="margin-bottom:2rem;">
+            <h3 style="font-size:1.125rem;font-weight:600;margin-bottom:1rem;">Security Overlay</h3>
+            <p style="font-size:0.875rem;color:var(--muted);line-height:1.6;margin-bottom:1rem;">The Security Overlay extends the same Core with domain-specific logic — without changing the architecture.</p>
+            <p style="font-size:0.875rem;color:var(--muted);margin-bottom:0.75rem;">The Security Overlay adds:</p>
+            <div style="display:flex;flex-direction:column;gap:0.25rem;">
+              <div style="display:flex;align-items:center;gap:0.5rem;font-size:0.875rem;color:var(--muted);"><span class="dot dot-accent"></span> contextual security logic</div>
+              <div style="display:flex;align-items:center;gap:0.5rem;font-size:0.875rem;color:var(--muted);"><span class="dot dot-accent"></span> operational playbooks</div>
+              <div style="display:flex;align-items:center;gap:0.5rem;font-size:0.875rem;color:var(--muted);"><span class="dot dot-accent"></span> accountability rules</div>
+            </div>
+          </div>
+          <div class="principle-box">
+            <p style="font-size:0.875rem;font-family:'JetBrains Mono',monospace;color:var(--muted);text-transform:uppercase;letter-spacing:0.05em;margin-bottom:0.5rem;">Key Principle</p>
+            <p style="font-weight:500;line-height:1.6;">The Core remains open. High-accountability logic lives in the Security Overlay.</p>
+          </div>
+        </div>
+        <div class="card">
+          <h3 style="font-size:1.125rem;font-weight:600;margin-bottom:1.5rem;">Security Overlay Includes:</h3>
+          <div style="display:flex;flex-direction:column;gap:0.75rem;">
+            <div class="overlay-item"><span class="dot dot-lg dot-accent"></span> Rules of Engagement (ROE)</div>
+            <div class="overlay-item"><span class="dot dot-lg dot-accent"></span> Escalation ladders (AI &rarr; operator &rarr; supervisor)</div>
+            <div class="overlay-item"><span class="dot dot-lg dot-accent"></span> Evidence bundling (context snapshot + timeline)</div>
+            <div class="overlay-item"><span class="dot dot-lg dot-accent"></span> Compliance workflows</div>
+            <div class="overlay-item"><span class="dot dot-lg dot-accent"></span> Privacy enforcement &amp; redaction</div>
+            <div class="overlay-item"><span class="dot dot-lg dot-accent"></span> SLA &amp; certification support</div>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ========== FOOTER ========== -->
+  <!-- 8. POSITIONING -->
+  <section id="positioning" class="section">
+    <div class="divider-top"></div>
+    <div class="section-inner">
+      <div class="section-header">
+        <span class="section-tag">Positioning</span>
+        <h2 class="section-title">Observability vs <span class="accent-text">Command &amp; Governance</span></h2>
+      </div>
+      <div class="card" style="padding:0;overflow-x:auto;">
+        <table class="pos-table">
+          <thead><tr><th>Capability</th><th>Robot Dashboard</th><th>Fleet Mgmt</th><th>PAI C2</th></tr></thead>
+          <tbody>
+            <tr><td>Telemetry &amp; visualization</td><td class="pos-yes">&#10003;</td><td class="pos-yes">&#10003;</td><td class="pos-yes">&#10003;</td></tr>
+            <tr><td>Teleoperation</td><td class="pos-yes">&#10003;</td><td class="pos-partial">&#9673;</td><td class="pos-yes">&#10003;</td></tr>
+            <tr><td>Fleet coordination</td><td class="pos-no">&mdash;</td><td class="pos-yes">&#10003;</td><td class="pos-yes">&#10003;</td></tr>
+            <tr><td>Task scheduling</td><td class="pos-no">&mdash;</td><td class="pos-yes">&#10003;</td><td class="pos-yes">&#10003;</td></tr>
+            <tr><td>Mission model (structured intent)</td><td class="pos-no">&mdash;</td><td class="pos-partial">&#9673;</td><td class="pos-yes">&#10003;</td></tr>
+            <tr><td>Decision as system object</td><td class="pos-no">&mdash;</td><td class="pos-no">&mdash;</td><td class="pos-yes">&#10003;</td></tr>
+            <tr><td>Policy enforcement</td><td class="pos-no">&mdash;</td><td class="pos-no">&mdash;</td><td class="pos-yes">&#10003;</td></tr>
+            <tr><td>Escalation logic</td><td class="pos-no">&mdash;</td><td class="pos-no">&mdash;</td><td class="pos-yes">&#10003;</td></tr>
+            <tr><td>Human-over-the-loop</td><td class="pos-no">&mdash;</td><td class="pos-no">&mdash;</td><td class="pos-yes">&#10003;</td></tr>
+            <tr><td>Incident abstraction</td><td class="pos-no">&mdash;</td><td class="pos-no">&mdash;</td><td class="pos-yes">&#10003;</td></tr>
+            <tr><td>Audit &amp; replay</td><td class="pos-no">&mdash;</td><td class="pos-partial">&#9673;</td><td class="pos-yes">&#10003;</td></tr>
+            <tr><td>Governance layer</td><td class="pos-no">&mdash;</td><td class="pos-no">&mdash;</td><td class="pos-yes">&#10003;</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div style="display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:1.5rem;margin-top:3rem;">
+        <div style="padding:1rem 1.5rem;border-radius:0.5rem;border:1px solid var(--border);background:rgba(20,18,16,0.3);font-size:0.875rem;color:var(--muted);"><strong style="color:var(--fg);">Dashboard</strong> = visibility.</div>
+        <div style="padding:1rem 1.5rem;border-radius:0.5rem;border:1px solid var(--border);background:rgba(20,18,16,0.3);font-size:0.875rem;color:var(--muted);"><strong style="color:var(--fg);">Fleet Management</strong> = coordination.</div>
+        <div style="padding:1rem 1.5rem;border-radius:0.5rem;border:1px solid rgba(201,169,110,0.3);background:rgba(201,169,110,0.05);font-size:0.875rem;"><strong style="color:var(--accent);">PAI C2</strong> <span style="color:var(--fg);">= command &amp; governance.</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 9. COMMUNITY -->
+  <section id="community" class="section">
+    <div class="grid-bg grid-bg-fainter"></div>
+    <div class="section-inner">
+      <div class="section-header">
+        <span class="section-tag">Community</span>
+        <h2 class="section-title">Community &amp; <span class="accent-text">Development Model</span></h2>
+      </div>
+      <div style="position:relative;width:100%;border-radius:0.75rem;border:1px solid var(--border);background:rgba(20,18,16,0.3);overflow:hidden;padding:2rem;">
+        <div style="position:relative;width:100%;padding-bottom:45%;">
+          <svg viewBox="0 0 1000 450" style="position:absolute;inset:0;width:100%;height:100%;" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <line x1="0" y1="56" x2="1000" y2="56" stroke="rgba(201,169,110,0.06)" stroke-width="0.5"/>
+            <line x1="0" y1="112" x2="1000" y2="112" stroke="rgba(201,169,110,0.06)" stroke-width="0.5"/>
+            <line x1="0" y1="168" x2="1000" y2="168" stroke="rgba(201,169,110,0.06)" stroke-width="0.5"/>
+            <line x1="0" y1="225" x2="1000" y2="225" stroke="rgba(201,169,110,0.06)" stroke-width="0.5"/>
+            <line x1="0" y1="281" x2="1000" y2="281" stroke="rgba(201,169,110,0.06)" stroke-width="0.5"/>
+            <line x1="0" y1="337" x2="1000" y2="337" stroke="rgba(201,169,110,0.06)" stroke-width="0.5"/>
+            <line x1="0" y1="393" x2="1000" y2="393" stroke="rgba(201,169,110,0.06)" stroke-width="0.5"/>
+            <path d="M50,80 L120,50 L200,55 L240,80 L250,120 L240,160 L200,200 L180,230 L160,200 L120,180 L80,160 L50,120 Z" fill="rgba(201,169,110,0.06)" stroke="rgba(201,169,110,0.12)" stroke-width="1"/>
+            <path d="M200,240 L240,230 L270,260 L280,310 L260,370 L230,400 L200,380 L190,330 L180,280 Z" fill="rgba(201,169,110,0.06)" stroke="rgba(201,169,110,0.12)" stroke-width="1"/>
+            <path d="M440,60 L500,50 L560,55 L580,80 L570,110 L540,130 L500,140 L460,130 L440,100 Z" fill="rgba(201,169,110,0.06)" stroke="rgba(201,169,110,0.12)" stroke-width="1"/>
+            <path d="M460,150 L520,140 L570,160 L580,220 L570,300 L540,350 L500,370 L470,340 L450,280 L440,200 Z" fill="rgba(201,169,110,0.06)" stroke="rgba(201,169,110,0.12)" stroke-width="1"/>
+            <path d="M580,40 L700,30 L800,50 L860,80 L880,130 L850,170 L800,180 L740,160 L680,140 L620,120 L590,80 Z" fill="rgba(201,169,110,0.06)" stroke="rgba(201,169,110,0.12)" stroke-width="1"/>
+            <path d="M780,300 L850,290 L900,310 L910,350 L880,380 L830,390 L790,370 L770,340 Z" fill="rgba(201,169,110,0.06)" stroke="rgba(201,169,110,0.12)" stroke-width="1"/>
+            <!-- Warsaw -->
+            <circle cx="555" cy="95" r="5" fill="#C9A96E"/>
+            <circle cx="555" cy="95" r="16" fill="none" stroke="rgba(201,169,110,0.4)" stroke-width="1"><animate attributeName="r" values="8;20;8" dur="3s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.6;0;0.6" dur="3s" repeatCount="indefinite"/></circle>
+            <text x="555" y="119" text-anchor="middle" fill="#F5F0E8" font-size="12" font-family="Inter,sans-serif" font-weight="600">Warsaw</text>
+            <text x="555" y="133" text-anchor="middle" fill="#C9A96E" font-size="9" font-family="JetBrains Mono,monospace" letter-spacing="0.1em">ACTIVE HUB</text>
+            <!-- Tokyo -->
+            <circle cx="840" cy="130" r="3.5" fill="rgba(201,169,110,0.5)"/>
+            <circle cx="840" cy="130" r="12" fill="none" stroke="rgba(201,169,110,0.2)" stroke-width="1"><animate attributeName="r" values="6;14;6" dur="3s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.6;0;0.6" dur="3s" repeatCount="indefinite"/></circle>
+            <text x="840" y="154" text-anchor="middle" fill="#F5F0E8" font-size="12" font-family="Inter,sans-serif" font-weight="600">Tokyo</text>
+            <text x="840" y="168" text-anchor="middle" fill="#8A8070" font-size="9" font-family="JetBrains Mono,monospace" letter-spacing="0.1em">PLANNED</text>
+            <!-- Los Angeles -->
+            <circle cx="150" cy="150" r="3.5" fill="rgba(201,169,110,0.5)"/>
+            <circle cx="150" cy="150" r="12" fill="none" stroke="rgba(201,169,110,0.2)" stroke-width="1"><animate attributeName="r" values="6;14;6" dur="3s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.6;0;0.6" dur="3s" repeatCount="indefinite"/></circle>
+            <text x="150" y="174" text-anchor="middle" fill="#F5F0E8" font-size="12" font-family="Inter,sans-serif" font-weight="600">Los Angeles</text>
+            <text x="150" y="188" text-anchor="middle" fill="#8A8070" font-size="9" font-family="JetBrains Mono,monospace" letter-spacing="0.1em">PLANNED</text>
+          </svg>
+        </div>
+      </div>
+      <div style="max-width:36rem;margin:3rem auto 0;text-align:center;">
+        <p style="font-size:1.125rem;color:var(--muted);margin-bottom:2rem;line-height:1.6;">PAI C2 is developed as an evolving operational standard:</p>
+        <div style="display:grid;grid-template-columns:1fr;gap:0.75rem;margin-bottom:2.5rem;" class="grid-2">
+          <div style="display:flex;align-items:center;gap:0.75rem;padding:1rem;border-radius:0.5rem;border:1px solid var(--border);background:rgba(20,18,16,0.3);font-size:0.875rem;"><span class="dot dot-lg dot-accent"></span> Open Core development</div>
+          <div style="display:flex;align-items:center;gap:0.75rem;padding:1rem;border-radius:0.5rem;border:1px solid var(--border);background:rgba(20,18,16,0.3);font-size:0.875rem;"><span class="dot dot-lg dot-accent"></span> Community-driven capability standards</div>
+          <div style="display:flex;align-items:center;gap:0.75rem;padding:1rem;border-radius:0.5rem;border:1px solid var(--border);background:rgba(20,18,16,0.3);font-size:0.875rem;"><span class="dot dot-lg dot-accent"></span> AI-native development workflows</div>
+          <div style="display:flex;align-items:center;gap:0.75rem;padding:1rem;border-radius:0.5rem;border:1px solid var(--border);background:rgba(20,18,16,0.3);font-size:0.875rem;"><span class="dot dot-lg dot-accent"></span> Validation on real robots and deployments</div>
+        </div>
+        <p style="color:var(--accent);font-weight:600;">Built publicly. Validated operationally. Evolving as a standard.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
   <footer class="footer">
     <div class="footer-inner">
-      <div class="footer-brand">
-        <span class="footer-brand-name">PAI C2</span>
-        <span class="footer-brand-tagline">The Operational Layer for Scalable Autonomy</span>
+      <div style="margin-bottom:3rem;">
+        <p style="font-size:1.125rem;color:var(--muted);margin-bottom:0.5rem;">Physical AI is scaling rapidly.</p>
+        <p style="font-size:1.125rem;color:var(--muted);margin-bottom:2rem;">Operational governance is not.</p>
+        <p style="font-size:1.25rem;font-weight:600;margin-bottom:2rem;">PAI C2 defines a new category:<br><span class="accent-text">Physical AI Command &amp; Control.</span></p>
+        <div class="footer-tagline">
+          <span>Vendor-neutral.</span><span class="footer-tagline-dot"></span>
+          <span>Mission-oriented.</span><span class="footer-tagline-dot"></span>
+          <span>Governance-ready.</span>
+        </div>
       </div>
-      <nav class="footer-nav">
-        <a href="#platform">Platform</a>
-        <a href="#architecture">Architecture</a>
-        <a href="#nvidia">NVIDIA Stack</a>
-      </nav>
-      <p class="footer-copy">&copy; 2026 PAI C2. All rights reserved.</p>
+      <div class="footer-bottom">
+        <span class="footer-brand">PAI C2</span>
+        <nav class="footer-nav">
+          <a href="#problem">Problem</a>
+          <a href="#solution">Solution</a>
+          <a href="#architecture">Architecture</a>
+          <a href="#nvidia">NVIDIA</a>
+        </nav>
+        <p class="footer-copy">&copy; 2026 PAI C2</p>
+      </div>
     </div>
   </footer>
 

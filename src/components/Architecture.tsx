@@ -2,52 +2,66 @@
 
 const layers = [
   {
-    label: "Applications",
-    color: "accent",
-    items: ["Mission Control UI", "Fleet Manager", "Analytics Dashboard", "Policy Editor"],
+    name: "Audit & Memory Layer",
+    description: "Incident graph, replay, structured traceability.",
   },
   {
-    label: "API Gateway",
-    color: "accent",
-    items: ["REST / gRPC", "WebSocket Streams", "Auth & RBAC", "Rate Limiting"],
+    name: "Escalation Layer",
+    description: "Supervised intervention (Human-over-the-loop).",
   },
   {
-    label: "Core Services",
-    color: "accent",
-    items: ["Orchestrator", "Task Scheduler", "State Manager", "Safety Engine"],
+    name: "Policy Layer",
+    description: "Boundaries, constraints, escalation rules.",
   },
   {
-    label: "Infrastructure",
-    color: "accent",
-    items: ["Edge Runtime", "Cloud Compute", "Message Bus", "Data Lake"],
+    name: "Command Layer",
+    description: "Mission orchestration and intent management.",
   },
   {
-    label: "Hardware Layer",
-    color: "accent",
-    items: ["NVIDIA Jetson / IGX", "Sensors & Actuators", "Network Fabric", "GPU Clusters"],
+    name: "Execution Layer",
+    description: "Robots, edge autonomy, local AI stacks.",
   },
 ];
 
 export default function Architecture() {
   return (
     <section id="architecture" className="relative py-32 px-6">
-      {/* Background accent */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-accent/3 rounded-full blur-[150px]" />
+      <div
+        className="absolute inset-0 opacity-[0.03]"
+        style={{
+          backgroundImage:
+            "linear-gradient(rgba(201,169,110,1) 1px, transparent 1px), linear-gradient(90deg, rgba(201,169,110,1) 1px, transparent 1px)",
+          backgroundSize: "64px 64px",
+        }}
+      />
 
       <div className="relative z-10 max-w-5xl mx-auto">
         {/* Section header */}
-        <div className="text-center mb-20">
+        <div className="text-center mb-8">
           <span className="inline-block px-4 py-1.5 rounded-full border border-border bg-surface/50 text-sm text-muted font-mono tracking-wide mb-6">
             Architecture
           </span>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight mb-6">
-            Built in <span className="text-accent">layers</span>, deployed as one
+            Autonomy by <span className="text-accent">Default</span>
           </h2>
-          <p className="text-lg text-muted max-w-2xl mx-auto">
-            A modular, layered architecture that scales from a single robot to
-            thousands of autonomous agents across geographies.
+        </div>
+
+        {/* Human Over the Loop concept */}
+        <div className="max-w-2xl mx-auto mb-16 p-8 rounded-xl border border-border bg-surface/30 backdrop-blur-sm text-center">
+          <h3 className="text-xl font-semibold text-accent mb-4">
+            Human Over the Loop
+          </h3>
+          <p className="text-muted leading-relaxed">
+            Autonomy executes within defined policies.
+            <br />
+            Human intervention occurs when thresholds are exceeded.
           </p>
         </div>
+
+        {/* Logical Layers heading */}
+        <h3 className="text-center text-lg font-semibold text-foreground mb-10 font-mono tracking-wide">
+          Logical Layers
+        </h3>
 
         {/* Architecture stack */}
         <div className="space-y-3">
@@ -60,48 +74,23 @@ export default function Architecture() {
               <div className="absolute left-0 top-0 bottom-0 w-1 bg-accent/20 group-hover:bg-accent/60 transition-colors" />
 
               <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 p-6 pl-8">
-                {/* Layer name */}
-                <div className="flex items-center gap-3 sm:w-48 shrink-0">
+                {/* Layer number + name */}
+                <div className="flex items-center gap-3 sm:w-64 shrink-0">
                   <span className="text-xs font-mono text-muted/60 w-5">
                     0{layers.length - i}
                   </span>
                   <span className="text-sm font-semibold text-accent uppercase tracking-wider">
-                    {layer.label}
+                    {layer.name}
                   </span>
                 </div>
 
-                {/* Layer items */}
-                <div className="flex flex-wrap gap-2">
-                  {layer.items.map((item, j) => (
-                    <span
-                      key={j}
-                      className="px-3 py-1.5 rounded-md border border-border bg-background/50 text-sm text-muted group-hover:text-foreground group-hover:border-border transition-colors font-mono"
-                    >
-                      {item}
-                    </span>
-                  ))}
-                </div>
+                {/* Layer description */}
+                <p className="text-sm text-muted leading-relaxed">
+                  {layer.description}
+                </p>
               </div>
             </div>
           ))}
-        </div>
-
-        {/* Connector lines visual */}
-        <div className="mt-16 flex items-center justify-center gap-8">
-          <div className="flex flex-col items-center gap-2">
-            <div className="w-px h-8 bg-gradient-to-b from-accent/40 to-transparent" />
-            <span className="text-xs font-mono text-muted/50 tracking-wide">EDGE</span>
-          </div>
-          <div className="flex-1 h-px bg-gradient-to-r from-transparent via-accent/20 to-transparent" />
-          <div className="flex flex-col items-center gap-2">
-            <div className="w-px h-8 bg-gradient-to-b from-accent/40 to-transparent" />
-            <span className="text-xs font-mono text-muted/50 tracking-wide">CLOUD</span>
-          </div>
-          <div className="flex-1 h-px bg-gradient-to-r from-transparent via-accent/20 to-transparent" />
-          <div className="flex flex-col items-center gap-2">
-            <div className="w-px h-8 bg-gradient-to-b from-accent/40 to-transparent" />
-            <span className="text-xs font-mono text-muted/50 tracking-wide">FLEET</span>
-          </div>
         </div>
       </div>
     </section>

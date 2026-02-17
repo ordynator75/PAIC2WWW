@@ -1,16 +1,26 @@
 import Hero from "@/components/Hero";
-import Platform from "@/components/Platform";
+import Problem from "@/components/Problem";
+import Solution from "@/components/Solution";
+import COP from "@/components/COP";
 import Architecture from "@/components/Architecture";
 import Nvidia from "@/components/Nvidia";
+import SecurityOverlay from "@/components/SecurityOverlay";
+import Positioning from "@/components/Positioning";
+import Community from "@/components/Community";
 import Footer from "@/components/Footer";
 
 export default function Home() {
   return (
     <main>
       <Hero />
-      <Platform />
+      <Problem />
+      <Solution />
+      <COP />
       <Architecture />
       <Nvidia />
+      <SecurityOverlay />
+      <Positioning />
+      <Community />
       <Footer />
     </main>
   );
