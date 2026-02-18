@@ -35,7 +35,7 @@ const integrations = [
 
 export default function Nvidia() {
   return (
-    <section id="nvidia" className="relative py-32 px-6">
+    <section id="ai-stack" className="relative py-32 px-6">
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-border to-transparent" />
 
       {/* Background glow */}
@@ -45,53 +45,62 @@ export default function Nvidia() {
         {/* Section header */}
         <div className="text-center mb-16">
           <span className="inline-block px-4 py-1.5 rounded-full border border-border bg-surface/50 text-sm text-muted font-mono tracking-wide mb-6">
-            NVIDIA Stack
+            AI Stack Integration
           </span>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight mb-6">
-            NVIDIA Physical AI Stack —{" "}
-            <span className="text-accent">Technology We Leverage</span>
+            C2-Centric{" "}
+            <span className="text-accent">Architecture</span>
           </h2>
           <p className="text-lg text-muted max-w-2xl mx-auto">
-            PAI C2 is designed to integrate across the NVIDIA Physical AI stack.
+            PAI C2 orchestrates the full AI stack from a single command layer.
           </p>
         </div>
 
-        {/* Integration cards */}
-        <div className="space-y-4">
-          {integrations.map((item, i) => (
-            <div
-              key={i}
-              className="group relative rounded-xl border border-border bg-surface/30 backdrop-blur-sm hover:border-accent/30 hover:bg-surface/50 transition-all duration-300 overflow-hidden"
-            >
-              <div className="absolute left-0 top-0 bottom-0 w-1 bg-accent/20 group-hover:bg-accent/60 transition-colors" />
+        {/* C2-Centric Architecture Diagram */}
+        <div className="flex flex-col items-center">
+          {/* Hub: PAI C2 */}
+          <div className="flex items-center gap-3 px-10 py-5 rounded-xl border-2 border-accent bg-accent/8 backdrop-blur-sm z-10">
+            <span className="w-2.5 h-2.5 rounded-full bg-accent animate-pulse-glow" />
+            <span className="text-xl font-bold tracking-tight text-foreground">PAI C2</span>
+          </div>
 
-              <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 p-6 pl-8">
-                <div className="sm:w-56 shrink-0">
-                  <span className="inline-block px-2.5 py-1 rounded-md bg-accent/10 text-accent text-xs font-mono tracking-wide mb-2">
-                    {item.category}
-                  </span>
-                  <h3 className="text-base font-semibold text-foreground">
-                    {item.name}
-                  </h3>
-                </div>
-                <p className="text-sm text-muted leading-relaxed">
+          {/* Connector lines */}
+          <div className="relative w-full h-14 hidden md:block">
+            {/* Vertical line from hub */}
+            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-0.5 h-1/2 bg-accent/30" />
+            {/* Horizontal line */}
+            <div className="absolute top-1/2 left-[10%] right-[10%] h-0.5 bg-accent/30" />
+            {/* 5 vertical drops */}
+            <div className="absolute top-1/2 left-[10%] right-[10%] h-1/2 flex justify-between">
+              {integrations.map((_, i) => (
+                <div key={i} className="w-0.5 h-full bg-accent/30" />
+              ))}
+            </div>
+          </div>
+
+          {/* Cards grid */}
+          <div className="grid grid-cols-2 md:grid-cols-5 gap-3 w-full" style={{ paddingLeft: "0%", paddingRight: "0%" }}>
+            {integrations.map((item, i) => (
+              <div
+                key={i}
+                className="rounded-xl border border-border bg-surface/30 backdrop-blur-sm hover:border-accent/30 hover:bg-surface/50 transition-all duration-300 p-5 flex flex-col gap-2 text-center"
+              >
+                <span className="self-center inline-block px-2 py-0.5 rounded-md bg-accent/10 text-accent text-[0.625rem] font-mono tracking-wide uppercase">
+                  {item.category}
+                </span>
+                <h3 className="text-sm font-semibold text-foreground leading-tight">
+                  {item.name}
+                </h3>
+                <p className="text-xs text-muted leading-relaxed">
                   {item.description}
                 </p>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
 
-        {/* Positioning */}
-        <div className="mt-16 max-w-2xl mx-auto p-8 rounded-xl border border-border bg-surface/30 backdrop-blur-sm">
-          <div className="space-y-3 mb-8">
-            <p className="text-foreground font-medium">
-              <span className="text-accent">NVIDIA</span> provides perception, simulation, and compute.
-            </p>
-            <p className="text-foreground font-medium">
-              <span className="text-accent">PAI C2</span> provides operational command.
-            </p>
-          </div>
+        {/* Disclaimer */}
+        <div className="mt-12 max-w-2xl mx-auto text-center">
           <p className="text-xs text-muted/60 leading-relaxed">
             NVIDIA, Isaac Sim, Jetson Orin, Jetson Thor, DGX Spark, Cosmos, and OSMO are trademarks of NVIDIA Corporation.
             PAI C2 is an independent platform and is not affiliated with or endorsed by NVIDIA.

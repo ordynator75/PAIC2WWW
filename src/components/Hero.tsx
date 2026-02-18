@@ -75,10 +75,10 @@ export default function Hero() {
             See Architecture
           </a>
           <a
-            href="#nvidia"
+            href="#ai-stack"
             className="inline-flex items-center gap-2 px-8 py-4 border border-border hover:border-accent/40 text-muted hover:text-foreground font-semibold rounded-lg transition-all duration-200 bg-transparent hover:bg-surface/30"
           >
-            See NVIDIA Stack Integration
+            See AI Stack Integration
           </a>
         </div>
       </div>
