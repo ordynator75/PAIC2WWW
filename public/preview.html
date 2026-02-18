@@ -259,124 +259,168 @@
       <!-- Two-column with connecting lines -->
       <div style="position:relative;">
         <!-- SVG connecting lines overlay -->
-        <svg style="position:absolute;inset:0;width:100%;height:380px;pointer-events:none;z-index:5;" viewBox="0 0 960 380" preserveAspectRatio="none">
+        <svg style="position:absolute;inset:0;width:100%;height:520px;pointer-events:none;z-index:5;" viewBox="0 0 1100 520" preserveAspectRatio="xMidYMid meet" fill="none">
           <defs>
-            <linearGradient id="copLineGrad" x1="0" y1="0" x2="1" y2="0">
-              <stop offset="0%" stop-color="rgb(201,169,110)" stop-opacity="0.6"/>
+            <linearGradient id="copLineGrad2" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0%" stop-color="rgb(201,169,110)" stop-opacity="0.7"/>
+              <stop offset="50%" stop-color="rgb(201,169,110)" stop-opacity="0.4"/>
               <stop offset="100%" stop-color="rgb(201,169,110)" stop-opacity="0.15"/>
             </linearGradient>
           </defs>
-          <path d="M 430 52 C 470 52, 220 60, 280 60" fill="none" stroke="url(#copLineGrad)" stroke-width="1.5"/>
-          <path d="M 430 120 C 470 120, 320 110, 380 110" fill="none" stroke="url(#copLineGrad)" stroke-width="1.5"/>
-          <path d="M 430 188 C 470 188, 260 200, 320 200" fill="none" stroke="url(#copLineGrad)" stroke-width="1.5"/>
-          <path d="M 430 256 C 470 256, 340 260, 400 260" fill="none" stroke="url(#copLineGrad)" stroke-width="1.5"/>
-          <path d="M 430 324 C 470 324, 280 330, 340 330" fill="none" stroke="url(#copLineGrad)" stroke-width="1.5"/>
+          <path d="M 480 52 L 530 52 Q 580 52, 600 56 T 720 90" stroke="url(#copLineGrad2)" stroke-width="1.5"/>
+          <path d="M 480 152 L 530 152 Q 580 152, 600 146 T 800 180" stroke="url(#copLineGrad2)" stroke-width="1.5"/>
+          <path d="M 480 252 L 530 252 Q 580 252, 600 251 T 750 260" stroke="url(#copLineGrad2)" stroke-width="1.5"/>
+          <path d="M 480 352 L 530 352 Q 580 352, 600 346 T 830 340" stroke="url(#copLineGrad2)" stroke-width="1.5"/>
+          <path d="M 480 452 L 530 452 Q 580 452, 600 441 T 770 420" stroke="url(#copLineGrad2)" stroke-width="1.5"/>
         </svg>
 
-        <div style="display:grid;grid-template-columns:5fr 6fr;gap:2rem;align-items:center;">
-          <!-- Left: layer cards -->
-          <div style="display:flex;flex-direction:column;gap:0.5rem;">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center;">
+          <!-- Left: layer cards with illustrations -->
+          <div style="display:flex;flex-direction:column;gap:0.75rem;">
             <!-- Spatial Layer -->
-            <div style="display:flex;align-items:center;gap:1rem;padding:1rem;border-radius:0.75rem;border:1px solid var(--border);background:rgba(26,24,20,0.3);backdrop-filter:blur(8px);">
-              <div style="flex-shrink:0;width:2.5rem;height:2.5rem;border-radius:0.5rem;background:rgba(201,169,110,0.1);display:flex;align-items:center;justify-content:center;">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="rgb(201,169,110)" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"/></svg>
+            <div style="display:flex;align-items:center;gap:1rem;padding:0.75rem 1rem 0.75rem 0.75rem;border-radius:0.75rem;border:1px solid rgba(201,169,110,0.2);background:rgba(26,24,20,0.2);backdrop-filter:blur(8px);overflow:hidden;">
+              <div style="flex-shrink:0;width:72px;height:72px;border-radius:0.5rem;background:rgba(201,169,110,0.05);border:1px solid rgba(201,169,110,0.1);display:flex;align-items:center;justify-content:center;">
+                <svg viewBox="0 0 80 80" fill="none" width="72" height="72">
+                  <rect x="10" y="20" width="60" height="45" rx="4" stroke="rgb(201,169,110)" stroke-width="0.8" stroke-opacity="0.3"/>
+                  <line x1="10" y1="35" x2="70" y2="35" stroke="rgb(201,169,110)" stroke-width="0.5" stroke-opacity="0.15"/>
+                  <line x1="10" y1="50" x2="70" y2="50" stroke="rgb(201,169,110)" stroke-width="0.5" stroke-opacity="0.15"/>
+                  <line x1="30" y1="20" x2="30" y2="65" stroke="rgb(201,169,110)" stroke-width="0.5" stroke-opacity="0.15"/>
+                  <line x1="50" y1="20" x2="50" y2="65" stroke="rgb(201,169,110)" stroke-width="0.5" stroke-opacity="0.15"/>
+                  <circle cx="25" cy="30" r="3" fill="rgb(201,169,110)" fill-opacity="0.8"/>
+                  <circle cx="25" cy="30" r="5" stroke="rgb(201,169,110)" stroke-width="0.5" stroke-opacity="0.4" fill="none"/>
+                  <circle cx="45" cy="42" r="2.5" fill="rgb(201,169,110)" fill-opacity="0.6"/>
+                  <line x1="25" y1="30" x2="45" y2="42" stroke="rgb(201,169,110)" stroke-width="0.7" stroke-opacity="0.3" stroke-dasharray="2 2"/>
+                </svg>
               </div>
               <div>
-                <div style="display:flex;align-items:center;gap:0.5rem;margin-bottom:0.125rem;"><span style="width:6px;height:6px;border-radius:50%;background:var(--accent);"></span><span style="font-size:0.875rem;font-weight:600;">Spatial Layer</span></div>
-                <p style="font-size:0.75rem;color:var(--muted);">Real-time map &amp; asset locations</p>
+                <div style="display:flex;align-items:center;gap:0.5rem;margin-bottom:0.25rem;"><span style="width:8px;height:8px;border-radius:50%;background:var(--accent);flex-shrink:0;"></span><span style="font-size:0.875rem;font-weight:700;">Spatial Layer</span></div>
+                <p style="font-size:0.75rem;color:var(--muted);line-height:1.5;">Real-time map &amp; asset locations</p>
               </div>
             </div>
             <!-- Robot State -->
-            <div style="display:flex;align-items:center;gap:1rem;padding:1rem;border-radius:0.75rem;border:1px solid var(--border);background:rgba(26,24,20,0.3);backdrop-filter:blur(8px);">
-              <div style="flex-shrink:0;width:2.5rem;height:2.5rem;border-radius:0.5rem;background:rgba(201,169,110,0.1);display:flex;align-items:center;justify-content:center;">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="rgb(201,169,110)" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 3v1.5m7.5-1.5v1.5M3 9h18M3 13.5h18m-13.5 6h9m-9 0a1.5 1.5 0 01-1.5-1.5v-9A1.5 1.5 0 014.5 7.5h15a1.5 1.5 0 011.5 1.5v9a1.5 1.5 0 01-1.5 1.5"/></svg>
+            <div style="display:flex;align-items:center;gap:1rem;padding:0.75rem 1rem 0.75rem 0.75rem;border-radius:0.75rem;border:1px solid rgba(201,169,110,0.2);background:rgba(26,24,20,0.2);backdrop-filter:blur(8px);overflow:hidden;">
+              <div style="flex-shrink:0;width:72px;height:72px;border-radius:0.5rem;background:rgba(201,169,110,0.05);border:1px solid rgba(201,169,110,0.1);display:flex;align-items:center;justify-content:center;">
+                <svg viewBox="0 0 80 80" fill="none" width="72" height="72">
+                  <rect x="25" y="25" width="30" height="22" rx="4" stroke="rgb(201,169,110)" stroke-width="1" stroke-opacity="0.6" fill="rgba(201,169,110,0.08)"/>
+                  <rect x="30" y="48" width="8" height="10" rx="2" stroke="rgb(201,169,110)" stroke-width="0.7" stroke-opacity="0.4"/>
+                  <rect x="42" y="48" width="8" height="10" rx="2" stroke="rgb(201,169,110)" stroke-width="0.7" stroke-opacity="0.4"/>
+                  <circle cx="34" cy="33" r="2.5" fill="rgb(201,169,110)" fill-opacity="0.7"/>
+                  <circle cx="46" cy="33" r="2.5" fill="rgb(201,169,110)" fill-opacity="0.7"/>
+                  <line x1="40" y1="25" x2="40" y2="17" stroke="rgb(201,169,110)" stroke-width="0.8" stroke-opacity="0.5"/>
+                  <circle cx="40" cy="15" r="2" fill="rgb(201,169,110)" fill-opacity="0.6"/>
+                  <rect x="27" y="41" width="26" height="2.5" rx="1" fill="rgba(201,169,110,0.15)"/>
+                  <rect x="27" y="41" width="18" height="2.5" rx="1" fill="rgba(201,169,110,0.5)"/>
+                </svg>
               </div>
               <div>
-                <div style="display:flex;align-items:center;gap:0.5rem;margin-bottom:0.125rem;"><span style="width:6px;height:6px;border-radius:50%;background:var(--accent);"></span><span style="font-size:0.875rem;font-weight:600;">Robot State</span></div>
-                <p style="font-size:0.75rem;color:var(--muted);">Position, status, health, activity</p>
+                <div style="display:flex;align-items:center;gap:0.5rem;margin-bottom:0.25rem;"><span style="width:8px;height:8px;border-radius:50%;background:var(--accent);flex-shrink:0;"></span><span style="font-size:0.875rem;font-weight:700;">Robot State</span></div>
+                <p style="font-size:0.75rem;color:var(--muted);line-height:1.5;">Position, status, health, activity</p>
               </div>
             </div>
             <!-- Events & Alerts -->
-            <div style="display:flex;align-items:center;gap:1rem;padding:1rem;border-radius:0.75rem;border:1px solid var(--border);background:rgba(26,24,20,0.3);backdrop-filter:blur(8px);">
-              <div style="flex-shrink:0;width:2.5rem;height:2.5rem;border-radius:0.5rem;background:rgba(201,169,110,0.1);display:flex;align-items:center;justify-content:center;">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="rgb(201,169,110)" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0"/></svg>
+            <div style="display:flex;align-items:center;gap:1rem;padding:0.75rem 1rem 0.75rem 0.75rem;border-radius:0.75rem;border:1px solid rgba(201,169,110,0.2);background:rgba(26,24,20,0.2);backdrop-filter:blur(8px);overflow:hidden;">
+              <div style="flex-shrink:0;width:72px;height:72px;border-radius:0.5rem;background:rgba(201,169,110,0.05);border:1px solid rgba(201,169,110,0.1);display:flex;align-items:center;justify-content:center;">
+                <svg viewBox="0 0 80 80" fill="none" width="72" height="72">
+                  <path d="M40 18L58 55H22L40 18Z" stroke="rgb(201,169,110)" stroke-width="1" stroke-opacity="0.6" fill="rgba(201,169,110,0.08)"/>
+                  <text x="40" y="48" text-anchor="middle" fill="rgb(201,169,110)" fill-opacity="0.8" font-size="16" font-weight="bold">!</text>
+                  <circle cx="40" cy="40" r="28" stroke="rgb(201,169,110)" stroke-width="0.5" stroke-opacity="0.15"/>
+                  <circle cx="18" cy="35" r="2" fill="rgb(239,68,68)" fill-opacity="0.7"/>
+                  <circle cx="18" cy="35" r="4" stroke="rgb(239,68,68)" stroke-width="0.5" stroke-opacity="0.3" fill="none"/>
+                  <circle cx="60" cy="30" r="1.5" fill="rgb(245,158,11)" fill-opacity="0.7"/>
+                </svg>
               </div>
               <div>
-                <div style="display:flex;align-items:center;gap:0.5rem;margin-bottom:0.125rem;"><span style="width:6px;height:6px;border-radius:50%;background:var(--accent);"></span><span style="font-size:0.875rem;font-weight:600;">Events &amp; Alerts</span></div>
-                <p style="font-size:0.75rem;color:var(--muted);">Incidents, anomalies, warnings</p>
+                <div style="display:flex;align-items:center;gap:0.5rem;margin-bottom:0.25rem;"><span style="width:8px;height:8px;border-radius:50%;background:var(--accent);flex-shrink:0;"></span><span style="font-size:0.875rem;font-weight:700;">Events &amp; Alerts</span></div>
+                <p style="font-size:0.75rem;color:var(--muted);line-height:1.5;">Incidents, anomalies, warnings</p>
               </div>
             </div>
             <!-- Active Missions -->
-            <div style="display:flex;align-items:center;gap:1rem;padding:1rem;border-radius:0.75rem;border:1px solid var(--border);background:rgba(26,24,20,0.3);backdrop-filter:blur(8px);">
-              <div style="flex-shrink:0;width:2.5rem;height:2.5rem;border-radius:0.5rem;background:rgba(201,169,110,0.1);display:flex;align-items:center;justify-content:center;">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="rgb(201,169,110)" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 12h16.5m-16.5 3.75h16.5M3.75 19.5h16.5M5.625 4.5h12.75a1.875 1.875 0 010 3.75H5.625a1.875 1.875 0 010-3.75z"/></svg>
+            <div style="display:flex;align-items:center;gap:1rem;padding:0.75rem 1rem 0.75rem 0.75rem;border-radius:0.75rem;border:1px solid rgba(201,169,110,0.2);background:rgba(26,24,20,0.2);backdrop-filter:blur(8px);overflow:hidden;">
+              <div style="flex-shrink:0;width:72px;height:72px;border-radius:0.5rem;background:rgba(201,169,110,0.05);border:1px solid rgba(201,169,110,0.1);display:flex;align-items:center;justify-content:center;">
+                <svg viewBox="0 0 80 80" fill="none" width="72" height="72">
+                  <path d="M15 58 Q25 30, 40 35 T65 20" stroke="rgb(201,169,110)" stroke-width="1.2" stroke-opacity="0.5" fill="none" stroke-dasharray="4 3"/>
+                  <circle cx="15" cy="58" r="4" stroke="rgb(201,169,110)" stroke-width="0.8" stroke-opacity="0.5" fill="rgba(201,169,110,0.15)"/>
+                  <circle cx="15" cy="58" r="1.5" fill="rgb(201,169,110)" fill-opacity="0.8"/>
+                  <circle cx="40" cy="35" r="4" stroke="rgb(201,169,110)" stroke-width="0.8" stroke-opacity="0.5" fill="rgba(201,169,110,0.15)"/>
+                  <circle cx="40" cy="35" r="1.5" fill="rgb(201,169,110)" fill-opacity="0.8"/>
+                  <circle cx="65" cy="20" r="4" stroke="rgb(201,169,110)" stroke-width="0.8" stroke-opacity="0.5" fill="rgba(201,169,110,0.15)"/>
+                  <circle cx="65" cy="20" r="1.5" fill="rgb(201,169,110)" fill-opacity="0.8"/>
+                </svg>
               </div>
               <div>
-                <div style="display:flex;align-items:center;gap:0.5rem;margin-bottom:0.125rem;"><span style="width:6px;height:6px;border-radius:50%;background:var(--accent);"></span><span style="font-size:0.875rem;font-weight:600;">Active Missions</span></div>
-                <p style="font-size:0.75rem;color:var(--muted);">Tasks, routes, priorities</p>
+                <div style="display:flex;align-items:center;gap:0.5rem;margin-bottom:0.25rem;"><span style="width:8px;height:8px;border-radius:50%;background:var(--accent);flex-shrink:0;"></span><span style="font-size:0.875rem;font-weight:700;">Active Missions</span></div>
+                <p style="font-size:0.75rem;color:var(--muted);line-height:1.5;">Tasks, routes, priorities</p>
               </div>
             </div>
             <!-- Human Intervention Status -->
-            <div style="display:flex;align-items:center;gap:1rem;padding:1rem;border-radius:0.75rem;border:1px solid var(--border);background:rgba(26,24,20,0.3);backdrop-filter:blur(8px);">
-              <div style="flex-shrink:0;width:2.5rem;height:2.5rem;border-radius:0.5rem;background:rgba(201,169,110,0.1);display:flex;align-items:center;justify-content:center;">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="rgb(201,169,110)" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z"/></svg>
+            <div style="display:flex;align-items:center;gap:1rem;padding:0.75rem 1rem 0.75rem 0.75rem;border-radius:0.75rem;border:1px solid rgba(201,169,110,0.2);background:rgba(26,24,20,0.2);backdrop-filter:blur(8px);overflow:hidden;">
+              <div style="flex-shrink:0;width:72px;height:72px;border-radius:0.5rem;background:rgba(201,169,110,0.05);border:1px solid rgba(201,169,110,0.1);display:flex;align-items:center;justify-content:center;">
+                <svg viewBox="0 0 80 80" fill="none" width="72" height="72">
+                  <circle cx="35" cy="24" r="7" stroke="rgb(201,169,110)" stroke-width="0.8" stroke-opacity="0.5" fill="rgba(201,169,110,0.08)"/>
+                  <path d="M22 55 Q22 38, 35 38 Q48 38, 48 55" stroke="rgb(201,169,110)" stroke-width="0.8" stroke-opacity="0.5" fill="rgba(201,169,110,0.06)"/>
+                  <rect x="50" y="30" width="18" height="25" rx="2" stroke="rgb(201,169,110)" stroke-width="0.8" stroke-opacity="0.4" fill="rgba(201,169,110,0.06)"/>
+                  <rect x="53" y="34" width="12" height="7" rx="1" fill="rgba(201,169,110,0.15)"/>
+                  <circle cx="56" cy="48" r="1.5" fill="rgb(34,197,94)" fill-opacity="0.6"/>
+                  <path d="M44 18L47 21L53 15" stroke="rgb(34,197,94)" stroke-width="1.2" stroke-opacity="0.6" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
               </div>
               <div>
-                <div style="display:flex;align-items:center;gap:0.5rem;margin-bottom:0.125rem;"><span style="width:6px;height:6px;border-radius:50%;background:var(--accent);"></span><span style="font-size:0.875rem;font-weight:600;">Human Intervention Status</span></div>
-                <p style="font-size:0.75rem;color:var(--muted);">Operator actions, approvals, handover</p>
+                <div style="display:flex;align-items:center;gap:0.5rem;margin-bottom:0.25rem;"><span style="width:8px;height:8px;border-radius:50%;background:var(--accent);flex-shrink:0;"></span><span style="font-size:0.875rem;font-weight:700;">Human Intervention Status</span></div>
+                <p style="font-size:0.75rem;color:var(--muted);line-height:1.5;">Operator actions, approvals, handover</p>
               </div>
             </div>
           </div>
 
-          <!-- Right: isometric COP visualization -->
-          <div style="position:relative;display:flex;align-items:center;justify-content:center;min-height:380px;">
-            <!-- Soft glow -->
-            <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:20rem;height:20rem;background:rgba(201,169,110,0.05);border-radius:50%;filter:blur(80px);"></div>
-            <!-- Isometric tilted plane -->
-            <div style="position:absolute;width:340px;height:340px;transform:perspective(800px) rotateX(55deg) rotateZ(-45deg);transform-origin:center center;">
-              <!-- Grid floor -->
-              <div style="position:absolute;inset:0;border-radius:0.5rem;background-image:linear-gradient(rgba(201,169,110,0.08) 1px, transparent 1px), linear-gradient(90deg, rgba(201,169,110,0.08) 1px, transparent 1px);background-size:28px 28px;border:1px solid rgba(201,169,110,0.1);"></div>
-              <!-- Building blocks -->
-              <div style="position:absolute;bottom:20%;left:15%;width:40px;height:40px;background:rgba(201,169,110,0.15);border:1px solid rgba(201,169,110,0.25);border-radius:3px;"></div>
-              <div style="position:absolute;bottom:45%;left:55%;width:55px;height:35px;background:rgba(201,169,110,0.12);border:1px solid rgba(201,169,110,0.2);border-radius:3px;"></div>
-              <div style="position:absolute;bottom:65%;left:25%;width:35px;height:50px;background:rgba(201,169,110,0.1);border:1px solid rgba(201,169,110,0.2);border-radius:3px;"></div>
-              <div style="position:absolute;bottom:30%;right:15%;width:45px;height:30px;background:rgba(201,169,110,0.13);border:1px solid rgba(201,169,110,0.22);border-radius:3px;"></div>
-              <div style="position:absolute;bottom:70%;right:20%;width:30px;height:30px;background:rgba(201,169,110,0.11);border:1px solid rgba(201,169,110,0.18);border-radius:3px;"></div>
-              <!-- Dashed path lines -->
-              <svg style="position:absolute;inset:0;width:100%;height:100%;opacity:0.4;">
-                <line x1="20%" y1="80%" x2="60%" y2="50%" stroke="rgb(201,169,110)" stroke-width="1.5" stroke-dasharray="4 4"/>
-                <line x1="60%" y1="50%" x2="30%" y2="30%" stroke="rgb(201,169,110)" stroke-width="1.5" stroke-dasharray="4 4"/>
-                <line x1="60%" y1="50%" x2="85%" y2="65%" stroke="rgb(201,169,110)" stroke-width="1.5" stroke-dasharray="4 4"/>
-                <line x1="85%" y1="65%" x2="75%" y2="25%" stroke="rgb(201,169,110)" stroke-width="1.5" stroke-dasharray="4 4"/>
-              </svg>
-              <!-- Asset markers -->
-              <div style="position:absolute;bottom:78%;left:18%;width:8px;height:8px;border-radius:50%;background:var(--accent);box-shadow:0 0 12px rgba(201,169,110,0.6);animation:pulseGlow 3s ease-in-out infinite;"></div>
-              <div style="position:absolute;bottom:48%;left:58%;width:10px;height:10px;border-radius:50%;background:var(--accent);box-shadow:0 0 14px rgba(201,169,110,0.7);animation:pulseGlow 3s ease-in-out infinite 0.5s;"></div>
-              <div style="position:absolute;bottom:28%;right:17%;width:8px;height:8px;border-radius:50%;background:rgba(201,169,110,0.8);box-shadow:0 0 10px rgba(201,169,110,0.5);animation:pulseGlow 3s ease-in-out infinite 1s;"></div>
-              <div style="position:absolute;bottom:63%;left:28%;width:7px;height:7px;border-radius:50%;background:rgba(201,169,110,0.7);box-shadow:0 0 10px rgba(201,169,110,0.4);animation:pulseGlow 3s ease-in-out infinite 1.5s;"></div>
-              <div style="position:absolute;bottom:68%;right:22%;width:9px;height:9px;border-radius:50%;background:rgba(201,169,110,0.9);box-shadow:0 0 12px rgba(201,169,110,0.5);animation:pulseGlow 3s ease-in-out infinite 2s;"></div>
+          <!-- Right: COP platform with concentric rings -->
+          <div style="position:relative;display:flex;align-items:center;justify-content:center;min-height:480px;">
+            <!-- Ambient glow -->
+            <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:18rem;height:18rem;background:rgba(201,169,110,0.08);border-radius:50%;filter:blur(100px);"></div>
+            <!-- Concentric rings -->
+            <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:360px;height:360px;border-radius:50%;border:1px solid rgba(201,169,110,0.08);"></div>
+            <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:280px;height:280px;border-radius:50%;border:1px solid rgba(201,169,110,0.12);"></div>
+            <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:200px;height:200px;border-radius:50%;border:1px solid rgba(201,169,110,0.15);"></div>
+            <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:120px;height:120px;border-radius:50%;border:1px solid rgba(201,169,110,0.2);"></div>
+            <!-- Isometric center platform -->
+            <div style="position:absolute;top:50%;left:50%;width:160px;height:160px;transform:translate(-50%,-50%) perspective(600px) rotateX(50deg) rotateZ(-45deg);">
+              <div style="position:absolute;inset:0;border-radius:4px;background-image:linear-gradient(rgba(201,169,110,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(201,169,110,0.1) 1px, transparent 1px);background-size:20px 20px;border:1px solid rgba(201,169,110,0.2);box-shadow:0 0 40px rgba(201,169,110,0.1);"></div>
+              <div style="position:absolute;bottom:15%;left:10%;width:24px;height:28px;background:rgba(201,169,110,0.18);border:1px solid rgba(201,169,110,0.3);border-radius:2px;"></div>
+              <div style="position:absolute;bottom:40%;left:50%;width:30px;height:20px;background:rgba(201,169,110,0.14);border:1px solid rgba(201,169,110,0.25);border-radius:2px;"></div>
+              <div style="position:absolute;bottom:60%;left:20%;width:20px;height:24px;background:rgba(201,169,110,0.12);border:1px solid rgba(201,169,110,0.2);border-radius:2px;"></div>
+              <div style="position:absolute;bottom:25%;right:10%;width:26px;height:18px;background:rgba(201,169,110,0.16);border:1px solid rgba(201,169,110,0.28);border-radius:2px;"></div>
             </div>
-            <!-- COP hub floating above -->
-            <div style="position:absolute;bottom:38%;left:55%;display:flex;flex-direction:column;align-items:center;gap:0.25rem;z-index:20;">
-              <div style="width:2.5rem;height:2.5rem;border-radius:50%;border:2px solid var(--accent);background:rgba(201,169,110,0.15);display:flex;align-items:center;justify-content:center;box-shadow:0 0 24px rgba(201,169,110,0.3);">
+            <!-- Location pins -->
+            <div style="position:absolute;top:15%;right:18%;width:10px;height:10px;border-radius:50%;background:var(--accent);box-shadow:0 0 16px rgba(201,169,110,0.7);animation:pulseGlow 3s ease-in-out infinite;"></div>
+            <div style="position:absolute;top:22%;left:20%;width:8px;height:8px;border-radius:50%;background:rgba(34,197,94,0.7);box-shadow:0 0 12px rgba(34,197,94,0.4);"></div>
+            <div style="position:absolute;top:45%;right:8%;width:9px;height:9px;border-radius:50%;background:var(--accent);box-shadow:0 0 14px rgba(201,169,110,0.6);animation:pulseGlow 3s ease-in-out infinite 1s;"></div>
+            <div style="position:absolute;bottom:25%;left:15%;width:8px;height:8px;border-radius:50%;background:rgba(201,169,110,0.8);box-shadow:0 0 12px rgba(201,169,110,0.5);animation:pulseGlow 3s ease-in-out infinite 1.5s;"></div>
+            <div style="position:absolute;bottom:18%;right:22%;width:7px;height:7px;border-radius:50%;background:rgb(239,68,68);box-shadow:0 0 10px rgba(239,68,68,0.4);"></div>
+            <div style="position:absolute;top:30%;left:45%;width:8px;height:8px;border-radius:50%;background:rgba(201,169,110,0.9);box-shadow:0 0 12px rgba(201,169,110,0.5);animation:pulseGlow 3s ease-in-out infinite 2s;"></div>
+            <!-- Connection lines between pins -->
+            <svg style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none;opacity:0.25;">
+              <line x1="82%" y1="15%" x2="55%" y2="30%" stroke="rgb(201,169,110)" stroke-width="1"/>
+              <line x1="20%" y1="22%" x2="45%" y2="30%" stroke="rgb(201,169,110)" stroke-width="1"/>
+              <line x1="45%" y1="30%" x2="92%" y2="45%" stroke="rgb(201,169,110)" stroke-width="1"/>
+              <line x1="15%" y1="75%" x2="45%" y2="30%" stroke="rgb(201,169,110)" stroke-width="1"/>
+              <line x1="78%" y1="82%" x2="92%" y2="45%" stroke="rgb(201,169,110)" stroke-width="1"/>
+            </svg>
+            <!-- Central COP hub -->
+            <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);display:flex;flex-direction:column;align-items:center;gap:0.25rem;z-index:20;">
+              <div style="width:2.75rem;height:2.75rem;border-radius:50%;border:2px solid var(--accent);background:rgba(201,169,110,0.15);display:flex;align-items:center;justify-content:center;box-shadow:0 0 30px rgba(201,169,110,0.35), 0 0 60px rgba(201,169,110,0.15);">
                 <span style="width:0.75rem;height:0.75rem;border-radius:50%;background:var(--accent);animation:pulseGlow 3s ease-in-out infinite;"></span>
               </div>
-              <span style="font-size:0.65rem;font-family:'JetBrains Mono',monospace;font-weight:700;letter-spacing:0.1em;color:var(--accent);text-transform:uppercase;">COP</span>
-            </div>
-            <!-- Status indicators -->
-            <div style="position:absolute;bottom:0.75rem;left:0.75rem;display:flex;align-items:center;gap:0.75rem;">
-              <div style="display:flex;align-items:center;gap:0.375rem;"><span style="width:6px;height:6px;border-radius:50%;background:#22c55e;"></span><span style="font-size:0.6rem;font-family:'JetBrains Mono',monospace;color:var(--muted);">5 active</span></div>
-              <div style="display:flex;align-items:center;gap:0.375rem;"><span style="width:6px;height:6px;border-radius:50%;background:#f59e0b;"></span><span style="font-size:0.6rem;font-family:'JetBrains Mono',monospace;color:var(--muted);">2 alerts</span></div>
             </div>
           </div>
         </div>
       </div>
 
-      <!-- Bottom statement -->
-      <div style="margin-top:3rem;display:flex;align-items:center;justify-content:center;gap:1.5rem;">
-        <p style="display:flex;align-items:center;gap:0.75rem;font-size:0.875rem;color:var(--muted);"><span style="color:var(--accent-red);">&times;</span> Not data streams.</p>
-        <span style="width:1px;height:1.25rem;background:var(--border);"></span>
-        <p style="display:flex;align-items:center;gap:0.75rem;font-size:0.875rem;font-weight:600;"><span style="color:var(--accent);">&#10003;</span> One decision context.</p>
+      <!-- Bottom divider + statement -->
+      <div style="margin-top:3.5rem;">
+        <div style="height:1px;background:linear-gradient(to right, transparent, rgba(201,169,110,0.2), transparent);margin-bottom:1.5rem;"></div>
+        <div style="display:flex;align-items:center;justify-content:center;gap:1.5rem;">
+          <p style="display:flex;align-items:center;gap:0.75rem;font-size:0.875rem;color:var(--muted);"><span style="color:var(--accent-red);font-size:1rem;">&times;</span> Not data streams.</p>
+          <span style="width:1px;height:1.25rem;background:var(--border);"></span>
+          <p style="display:flex;align-items:center;gap:0.75rem;font-size:0.875rem;font-weight:600;"><span style="color:var(--accent);font-size:1rem;">&#10003;</span> One decision context.</p>
+        </div>
       </div>
     </div>
   </section>
