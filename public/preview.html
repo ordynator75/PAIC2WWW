@@ -255,19 +255,40 @@
         <span class="section-tag">COP</span>
         <h2 class="section-title">Unified Operational <span class="accent-text">Situation View</span></h2>
       </div>
-      <div class="card" style="padding:2.5rem;">
-        <p style="font-size:0.875rem;font-family:'JetBrains Mono',monospace;color:var(--muted);margin-bottom:1.5rem;text-transform:uppercase;letter-spacing:0.05em;">COP integrates:</p>
-        <div style="display:flex;flex-direction:column;gap:0.75rem;margin-bottom:2.5rem;">
-          <div class="cop-item"><span class="dot dot-lg dot-accent"></span><span style="font-weight:500;">Spatial layer</span></div>
-          <div class="cop-item"><span class="dot dot-lg dot-accent"></span><span style="font-weight:500;">Robot state</span></div>
-          <div class="cop-item"><span class="dot dot-lg dot-accent"></span><span style="font-weight:500;">Events &amp; alerts</span></div>
-          <div class="cop-item"><span class="dot dot-lg dot-accent"></span><span style="font-weight:500;">Active missions</span></div>
-          <div class="cop-item"><span class="dot dot-lg dot-accent"></span><span style="font-weight:500;">Human intervention status</span></div>
+
+      <!-- Concentric layers diagram -->
+      <div style="position:relative;display:flex;align-items:center;justify-content:center;height:420px;max-width:40rem;margin:0 auto;">
+        <!-- Layer 1: Spatial layer (outermost) -->
+        <div style="position:absolute;width:100%;height:100%;border:1px solid rgba(201,169,110,0.2);border-radius:1rem;background:rgba(201,169,110,0.018);display:flex;align-items:flex-start;justify-content:center;padding-top:0.75rem;">
+          <span style="font-size:0.65rem;font-family:'JetBrains Mono',monospace;letter-spacing:0.05em;text-transform:uppercase;color:rgba(201,169,110,0.7);">Spatial layer</span>
         </div>
-        <div style="border-top:1px solid var(--border);padding-top:2rem;display:flex;flex-direction:column;gap:0.75rem;">
-          <p style="display:flex;align-items:center;gap:0.75rem;font-size:0.875rem;color:var(--muted);"><span style="color:var(--accent-red);">&times;</span> Not data streams.</p>
-          <p style="display:flex;align-items:center;gap:0.75rem;font-size:0.875rem;font-weight:600;"><span style="color:var(--accent);">&#10003;</span> One decision context.</p>
+        <!-- Layer 2: Robot state -->
+        <div style="position:absolute;width:84%;height:84%;border:1px solid rgba(201,169,110,0.2);border-radius:1rem;background:rgba(201,169,110,0.027);display:flex;align-items:flex-start;justify-content:center;padding-top:0.75rem;">
+          <span style="font-size:0.65rem;font-family:'JetBrains Mono',monospace;letter-spacing:0.05em;text-transform:uppercase;color:rgba(201,169,110,0.7);">Robot state</span>
         </div>
+        <!-- Layer 3: Events & alerts -->
+        <div style="position:absolute;width:68%;height:68%;border:1px solid rgba(201,169,110,0.2);border-radius:1rem;background:rgba(201,169,110,0.036);display:flex;align-items:flex-start;justify-content:center;padding-top:0.75rem;">
+          <span style="font-size:0.65rem;font-family:'JetBrains Mono',monospace;letter-spacing:0.05em;text-transform:uppercase;color:rgba(201,169,110,0.7);">Events &amp; alerts</span>
+        </div>
+        <!-- Layer 4: Active missions -->
+        <div style="position:absolute;width:52%;height:52%;border:1px solid rgba(201,169,110,0.2);border-radius:1rem;background:rgba(201,169,110,0.045);display:flex;align-items:flex-start;justify-content:center;padding-top:0.75rem;">
+          <span style="font-size:0.65rem;font-family:'JetBrains Mono',monospace;letter-spacing:0.05em;text-transform:uppercase;color:rgba(201,169,110,0.7);">Active missions</span>
+        </div>
+        <!-- Layer 5: Human intervention status (innermost) -->
+        <div style="position:absolute;width:36%;height:36%;border:1px solid rgba(201,169,110,0.2);border-radius:1rem;background:rgba(201,169,110,0.054);display:flex;align-items:flex-start;justify-content:center;padding-top:0.75rem;">
+          <span style="font-size:0.65rem;font-family:'JetBrains Mono',monospace;letter-spacing:0.05em;text-transform:uppercase;color:rgba(201,169,110,0.7);">Human intervention status</span>
+        </div>
+        <!-- Center: COP hub -->
+        <div style="position:absolute;display:flex;flex-direction:column;align-items:center;gap:0.5rem;z-index:10;">
+          <span style="width:0.75rem;height:0.75rem;border-radius:50%;background:var(--accent);animation:pulseGlow 3s ease-in-out infinite;"></span>
+          <span style="font-size:1.125rem;font-weight:700;letter-spacing:-0.025em;color:var(--fg);">COP</span>
+        </div>
+      </div>
+
+      <!-- Bottom statement -->
+      <div style="max-width:28rem;margin:2rem auto 0;display:flex;flex-direction:column;gap:0.75rem;">
+        <p style="display:flex;align-items:center;gap:0.75rem;font-size:0.875rem;color:var(--muted);"><span style="color:var(--accent-red);">&times;</span> Not data streams.</p>
+        <p style="display:flex;align-items:center;gap:0.75rem;font-size:0.875rem;font-weight:600;"><span style="color:var(--accent);">&#10003;</span> One decision context.</p>
       </div>
     </div>
   </section>
