@@ -28,34 +28,47 @@ export default function COP() {
           </h2>
         </div>
 
-        {/* COP visual */}
+        {/* COP concentric layers visual */}
         <div className="max-w-2xl mx-auto">
-          <div className="p-10 rounded-xl border border-border bg-surface/30 backdrop-blur-sm">
-            <p className="text-sm font-mono text-muted mb-6 tracking-wide uppercase">
-              COP integrates:
-            </p>
-            <div className="space-y-3 mb-10">
-              {copLayers.map((layer, i) => (
+          <div className="relative flex items-center justify-center" style={{ height: "420px" }}>
+            {/* Concentric rings - outermost to innermost */}
+            {copLayers.map((layer, i) => {
+              const size = 100 - i * 16; // 100%, 84%, 68%, 52%, 36%
+              const opacity = 0.12 + i * 0.06;
+              return (
                 <div
                   key={i}
-                  className="flex items-center gap-4 p-4 rounded-lg border border-border bg-background/50 hover:border-accent/30 transition-colors"
+                  className="absolute rounded-2xl border border-accent/20 flex items-start justify-center pt-3"
+                  style={{
+                    width: `${size}%`,
+                    height: `${size}%`,
+                    backgroundColor: `rgba(201,169,110,${opacity * 0.15})`,
+                  }}
                 >
-                  <span className="w-2 h-2 rounded-full bg-accent" />
-                  <span className="text-foreground font-medium">{layer}</span>
+                  <span className="text-[0.65rem] sm:text-xs font-mono tracking-wide text-accent/70 uppercase">
+                    {layer}
+                  </span>
                 </div>
-              ))}
-            </div>
+              );
+            })}
 
-            <div className="border-t border-border pt-8 space-y-3">
-              <p className="text-muted text-sm flex items-center gap-3">
-                <span className="text-accent-red">✕</span>
-                Not data streams.
-              </p>
-              <p className="text-foreground font-semibold flex items-center gap-3">
-                <span className="text-accent">✓</span>
-                One decision context.
-              </p>
+            {/* Center: COP hub */}
+            <div className="absolute flex flex-col items-center justify-center gap-2 z-10">
+              <span className="w-3 h-3 rounded-full bg-accent animate-pulse-glow" />
+              <span className="text-lg font-bold tracking-tight text-foreground">COP</span>
             </div>
+          </div>
+
+          {/* Bottom statement */}
+          <div className="mt-8 max-w-md mx-auto space-y-3">
+            <p className="text-muted text-sm flex items-center gap-3">
+              <span className="text-accent-red">&#x2715;</span>
+              Not data streams.
+            </p>
+            <p className="text-foreground font-semibold flex items-center gap-3">
+              <span className="text-accent">&#x2713;</span>
+              One decision context.
+            </p>
           </div>
         </div>
       </div>
