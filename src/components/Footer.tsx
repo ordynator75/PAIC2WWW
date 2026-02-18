@@ -33,7 +33,7 @@ export default function Footer() {
             <a href="#problem" className="text-sm text-muted hover:text-foreground transition-colors">Problem</a>
             <a href="#solution" className="text-sm text-muted hover:text-foreground transition-colors">Solution</a>
             <a href="#architecture" className="text-sm text-muted hover:text-foreground transition-colors">Architecture</a>
-            <a href="#ai-stack" className="text-sm text-muted hover:text-foreground transition-colors">AI Stack</a>
+            <a href="#ai-stack" className="text-sm text-muted hover:text-foreground transition-colors">AI Robotic Stack</a>
           </nav>
           <p className="text-xs text-muted/60 font-mono">
             &copy; 2026 PAI C2

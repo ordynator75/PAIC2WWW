@@ -45,7 +45,7 @@ export default function Nvidia() {
         {/* Section header */}
         <div className="text-center mb-16">
           <span className="inline-block px-4 py-1.5 rounded-full border border-border bg-surface/50 text-sm text-muted font-mono tracking-wide mb-6">
-            AI Stack Integration
+            AI Robotic Stack
           </span>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight mb-6">
             C2-Centric{" "}

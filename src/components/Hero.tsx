@@ -78,7 +78,7 @@ export default function Hero() {
             href="#ai-stack"
             className="inline-flex items-center gap-2 px-8 py-4 border border-border hover:border-accent/40 text-muted hover:text-foreground font-semibold rounded-lg transition-all duration-200 bg-transparent hover:bg-surface/30"
           >
-            See AI Stack Integration
+            See AI Robotic Stack Integration
           </a>
         </div>
       </div>
