@@ -260,12 +260,19 @@
         <p style="color:var(--muted);line-height:1.6;">Autonomy executes within defined policies.<br>Human intervention occurs when thresholds are exceeded.</p>
       </div>
       <h3 style="text-align:center;font-size:1.125rem;font-weight:600;margin-bottom:2.5rem;font-family:'JetBrains Mono',monospace;letter-spacing:0.05em;">Logical Layers</h3>
-      <div style="display:flex;flex-direction:column;gap:0.75rem;">
-        <div class="layer-row"><div class="layer-row-bar"></div><div class="layer-row-content"><div style="display:flex;align-items:center;gap:0.75rem;min-width:16rem;"><span class="layer-row-num">05</span><span class="layer-row-name">Audit &amp; Memory Layer</span></div><span class="layer-row-desc">Incident graph, replay, structured traceability.</span></div></div>
-        <div class="layer-row"><div class="layer-row-bar"></div><div class="layer-row-content"><div style="display:flex;align-items:center;gap:0.75rem;min-width:16rem;"><span class="layer-row-num">04</span><span class="layer-row-name">Escalation Layer</span></div><span class="layer-row-desc">Supervised intervention (Human-over-the-loop).</span></div></div>
-        <div class="layer-row"><div class="layer-row-bar"></div><div class="layer-row-content"><div style="display:flex;align-items:center;gap:0.75rem;min-width:16rem;"><span class="layer-row-num">03</span><span class="layer-row-name">Policy Layer</span></div><span class="layer-row-desc">Boundaries, constraints, escalation rules.</span></div></div>
-        <div class="layer-row"><div class="layer-row-bar"></div><div class="layer-row-content"><div style="display:flex;align-items:center;gap:0.75rem;min-width:16rem;"><span class="layer-row-num">02</span><span class="layer-row-name">Command Layer</span></div><span class="layer-row-desc">Mission orchestration and intent management.</span></div></div>
-        <div class="layer-row"><div class="layer-row-bar"></div><div class="layer-row-content"><div style="display:flex;align-items:center;gap:0.75rem;min-width:16rem;"><span class="layer-row-num">01</span><span class="layer-row-name">Execution Layer</span></div><span class="layer-row-desc">Robots, edge autonomy, local AI stacks.</span></div></div>
+      <div style="display:flex;flex-direction:column;gap:0.75rem;max-width:48rem;margin:0 auto;">
+        <!-- Top tier: Command + Escalation -->
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.75rem;">
+          <div class="layer-row"><div class="layer-row-bar"></div><div class="layer-row-content"><div style="display:flex;align-items:center;gap:0.75rem;"><span class="layer-row-num">02</span><span class="layer-row-name">Command Layer</span></div><span class="layer-row-desc">Mission orchestration and intent management.</span></div></div>
+          <div class="layer-row"><div class="layer-row-bar"></div><div class="layer-row-content"><div style="display:flex;align-items:center;gap:0.75rem;"><span class="layer-row-num">04</span><span class="layer-row-name">Escalation Layer</span></div><span class="layer-row-desc">Supervised intervention (Human-over-the-loop).</span></div></div>
+        </div>
+        <!-- Middle tier: Policy + Audit -->
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.75rem;">
+          <div class="layer-row"><div class="layer-row-bar"></div><div class="layer-row-content"><div style="display:flex;align-items:center;gap:0.75rem;"><span class="layer-row-num">03</span><span class="layer-row-name">Policy Layer</span></div><span class="layer-row-desc">Boundaries, constraints, escalation rules.</span></div></div>
+          <div class="layer-row"><div class="layer-row-bar"></div><div class="layer-row-content"><div style="display:flex;align-items:center;gap:0.75rem;"><span class="layer-row-num">05</span><span class="layer-row-name">Audit &amp; Memory Layer</span></div><span class="layer-row-desc">Incident graph, replay, structured traceability.</span></div></div>
+        </div>
+        <!-- Bottom tier: Execution -->
+        <div class="layer-row"><div class="layer-row-bar"></div><div class="layer-row-content"><div style="display:flex;align-items:center;gap:0.75rem;"><span class="layer-row-num">01</span><span class="layer-row-name">Execution Layer</span></div><span class="layer-row-desc">Robots, edge autonomy, local AI stacks.</span></div></div>
       </div>
     </div>
   </section>
