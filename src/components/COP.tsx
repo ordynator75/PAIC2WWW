@@ -6,7 +6,8 @@ const copLayers = [
     desc: "Real-time map & asset locations",
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} className="w-5 h-5">
-        <path strokeLinecap="round" strokeLinejoin="round" d="M9 6.75V15m6-6v8.25m.503-11.244l.006.006a7.948 7.948 0 013.741 6.738c0 3.597-2.4 6.634-5.69 7.592a.75.75 0 01-.37 0C9.65 21.384 7.25 18.347 7.25 14.75a7.948 7.948 0 013.741-6.738l.006-.006a.75.75 0 01.006 0z" />
+        <path strokeLinecap="round" strokeLinejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
+        <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
       </svg>
     ),
   },
@@ -48,13 +49,24 @@ const copLayers = [
   },
 ];
 
+/* Y-positions for the 5 card connection endpoints (matching card vertical centers) */
+const cardYPositions = [52, 120, 188, 256, 324];
+/* X,Y targets inside the visualization for each connection line */
+const vizTargets = [
+  { x: 280, y: 60 },
+  { x: 380, y: 110 },
+  { x: 320, y: 200 },
+  { x: 400, y: 260 },
+  { x: 340, y: 330 },
+];
+
 export default function COP() {
   return (
     <section id="cop" className="relative py-32 px-6">
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-border to-transparent" />
 
       {/* Background glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-accent/3 rounded-full blur-[150px]" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-accent/3 rounded-full blur-[150px]" />
 
       <div className="relative z-10 max-w-6xl mx-auto">
         {/* Section header */}
@@ -68,80 +80,118 @@ export default function COP() {
           </h2>
         </div>
 
-        {/* Two-column layout: cards left, visualization right */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-          {/* Left: layer cards */}
-          <div className="space-y-3">
-            {copLayers.map((layer, i) => (
-              <div
-                key={i}
-                className="group relative flex items-center gap-4 p-4 rounded-xl border border-border bg-surface/30 backdrop-blur-sm hover:border-accent/30 hover:bg-surface/50 transition-all duration-300"
-              >
-                <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-accent/10 flex items-center justify-center text-accent">
-                  {layer.icon}
-                </div>
-                <div className="flex-1 min-w-0">
-                  <div className="flex items-center gap-2 mb-0.5">
-                    <span className="w-1.5 h-1.5 rounded-full bg-accent" />
-                    <h3 className="text-sm font-semibold text-foreground">{layer.name}</h3>
+        {/* Two-column layout with SVG connecting lines */}
+        <div className="relative">
+          {/* SVG overlay for golden connecting lines (desktop only) */}
+          <svg
+            className="hidden lg:block absolute inset-0 w-full pointer-events-none"
+            style={{ height: "380px" }}
+            viewBox="0 0 960 380"
+            preserveAspectRatio="none"
+          >
+            <defs>
+              <linearGradient id="lineGrad" x1="0" y1="0" x2="1" y2="0">
+                <stop offset="0%" stopColor="rgb(201,169,110)" stopOpacity="0.6" />
+                <stop offset="100%" stopColor="rgb(201,169,110)" stopOpacity="0.15" />
+              </linearGradient>
+            </defs>
+            {cardYPositions.map((cy, i) => {
+              const t = vizTargets[i];
+              const startX = 430;
+              const midX = startX + 40;
+              return (
+                <path
+                  key={i}
+                  d={`M ${startX} ${cy} C ${midX} ${cy}, ${t.x - 60} ${t.y}, ${t.x} ${t.y}`}
+                  fill="none"
+                  stroke="url(#lineGrad)"
+                  strokeWidth="1.5"
+                />
+              );
+            })}
+          </svg>
+
+          <div className="grid grid-cols-1 lg:grid-cols-[minmax(0,5fr)_minmax(0,6fr)] gap-4 lg:gap-8 items-center">
+            {/* Left: layer cards */}
+            <div className="space-y-2">
+              {copLayers.map((layer, i) => (
+                <div
+                  key={i}
+                  className="group relative flex items-center gap-4 p-4 rounded-xl border border-border bg-surface/30 backdrop-blur-sm hover:border-accent/30 hover:bg-surface/50 transition-all duration-300"
+                >
+                  <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-accent/10 flex items-center justify-center text-accent">
+                    {layer.icon}
                   </div>
-                  <p className="text-xs text-muted">{layer.desc}</p>
+                  <div className="flex-1 min-w-0">
+                    <div className="flex items-center gap-2 mb-0.5">
+                      <span className="w-1.5 h-1.5 rounded-full bg-accent" />
+                      <h3 className="text-sm font-semibold text-foreground">{layer.name}</h3>
+                    </div>
+                    <p className="text-xs text-muted">{layer.desc}</p>
+                  </div>
                 </div>
-                {/* Connector line hint (visible on lg) */}
-                <div className="hidden lg:block absolute right-0 top-1/2 w-4 h-px bg-accent/30 translate-x-full" />
+              ))}
+            </div>
+
+            {/* Right: isometric-style COP visualization */}
+            <div className="relative flex items-center justify-center" style={{ minHeight: "380px" }}>
+              {/* Soft glow behind */}
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-accent/5 rounded-full blur-[80px]" />
+
+              {/* Isometric tilted plane */}
+              <div
+                className="absolute"
+                style={{
+                  width: "340px",
+                  height: "340px",
+                  transform: "perspective(800px) rotateX(55deg) rotateZ(-45deg)",
+                  transformOrigin: "center center",
+                }}
+              >
+                {/* Grid floor */}
+                <div
+                  className="absolute inset-0 rounded-lg"
+                  style={{
+                    backgroundImage:
+                      "linear-gradient(rgba(201,169,110,0.08) 1px, transparent 1px), linear-gradient(90deg, rgba(201,169,110,0.08) 1px, transparent 1px)",
+                    backgroundSize: "28px 28px",
+                    border: "1px solid rgba(201,169,110,0.1)",
+                  }}
+                />
+
+                {/* Building blocks on the isometric plane */}
+                <div className="absolute" style={{ bottom: "20%", left: "15%", width: "40px", height: "40px", background: "rgba(201,169,110,0.15)", border: "1px solid rgba(201,169,110,0.25)", borderRadius: "3px" }} />
+                <div className="absolute" style={{ bottom: "45%", left: "55%", width: "55px", height: "35px", background: "rgba(201,169,110,0.12)", border: "1px solid rgba(201,169,110,0.2)", borderRadius: "3px" }} />
+                <div className="absolute" style={{ bottom: "65%", left: "25%", width: "35px", height: "50px", background: "rgba(201,169,110,0.1)", border: "1px solid rgba(201,169,110,0.2)", borderRadius: "3px" }} />
+                <div className="absolute" style={{ bottom: "30%", right: "15%", width: "45px", height: "30px", background: "rgba(201,169,110,0.13)", border: "1px solid rgba(201,169,110,0.22)", borderRadius: "3px" }} />
+                <div className="absolute" style={{ bottom: "70%", right: "20%", width: "30px", height: "30px", background: "rgba(201,169,110,0.11)", border: "1px solid rgba(201,169,110,0.18)", borderRadius: "3px" }} />
+
+                {/* Glowing path lines on the floor */}
+                <svg className="absolute inset-0 w-full h-full" style={{ opacity: 0.4 }}>
+                  <line x1="20%" y1="80%" x2="60%" y2="50%" stroke="rgb(201,169,110)" strokeWidth="1.5" strokeDasharray="4 4" />
+                  <line x1="60%" y1="50%" x2="30%" y2="30%" stroke="rgb(201,169,110)" strokeWidth="1.5" strokeDasharray="4 4" />
+                  <line x1="60%" y1="50%" x2="85%" y2="65%" stroke="rgb(201,169,110)" strokeWidth="1.5" strokeDasharray="4 4" />
+                  <line x1="85%" y1="65%" x2="75%" y2="25%" stroke="rgb(201,169,110)" strokeWidth="1.5" strokeDasharray="4 4" />
+                </svg>
+
+                {/* Pulsing asset markers on the plane */}
+                <div className="absolute animate-pulse-glow" style={{ bottom: "78%", left: "18%", width: "8px", height: "8px", borderRadius: "50%", background: "var(--accent)", boxShadow: "0 0 12px rgba(201,169,110,0.6)" }} />
+                <div className="absolute animate-pulse-glow" style={{ bottom: "48%", left: "58%", width: "10px", height: "10px", borderRadius: "50%", background: "var(--accent)", boxShadow: "0 0 14px rgba(201,169,110,0.7)", animationDelay: "0.5s" }} />
+                <div className="absolute animate-pulse-glow" style={{ bottom: "28%", right: "17%", width: "8px", height: "8px", borderRadius: "50%", background: "rgba(201,169,110,0.8)", boxShadow: "0 0 10px rgba(201,169,110,0.5)", animationDelay: "1s" }} />
+                <div className="absolute animate-pulse-glow" style={{ bottom: "63%", left: "28%", width: "7px", height: "7px", borderRadius: "50%", background: "rgba(201,169,110,0.7)", boxShadow: "0 0 10px rgba(201,169,110,0.4)", animationDelay: "1.5s" }} />
+                <div className="absolute animate-pulse-glow" style={{ bottom: "68%", right: "22%", width: "9px", height: "9px", borderRadius: "50%", background: "rgba(201,169,110,0.9)", boxShadow: "0 0 12px rgba(201,169,110,0.5)", animationDelay: "2s" }} />
               </div>
-            ))}
-          </div>
 
-          {/* Right: stylized COP visualization */}
-          <div className="relative flex items-center justify-center" style={{ minHeight: "380px" }}>
-            {/* Outer glow */}
-            <div className="absolute inset-0 bg-accent/5 rounded-2xl blur-[60px]" />
-
-            {/* Grid background */}
-            <div
-              className="absolute inset-4 rounded-xl opacity-30"
-              style={{
-                backgroundImage:
-                  "linear-gradient(rgba(201,169,110,0.15) 1px, transparent 1px), linear-gradient(90deg, rgba(201,169,110,0.15) 1px, transparent 1px)",
-                backgroundSize: "32px 32px",
-              }}
-            />
-
-            {/* Visualization container */}
-            <div className="relative w-full h-full flex items-center justify-center rounded-xl border border-accent/20 bg-background/60 backdrop-blur-sm overflow-hidden" style={{ minHeight: "380px" }}>
-
-              {/* Radar circles */}
-              <div className="absolute w-64 h-64 rounded-full border border-accent/10" />
-              <div className="absolute w-44 h-44 rounded-full border border-accent/15" />
-              <div className="absolute w-24 h-24 rounded-full border border-accent/20" />
-
-              {/* Pulsing dots - representing assets on the map */}
-              <div className="absolute top-[20%] left-[25%] w-2.5 h-2.5 rounded-full bg-accent animate-pulse-glow" />
-              <div className="absolute top-[35%] right-[20%] w-2 h-2 rounded-full bg-accent/70 animate-pulse-glow" style={{ animationDelay: "0.5s" }} />
-              <div className="absolute bottom-[30%] left-[35%] w-2 h-2 rounded-full bg-accent/60 animate-pulse-glow" style={{ animationDelay: "1s" }} />
-              <div className="absolute top-[55%] right-[35%] w-3 h-3 rounded-full bg-accent/80 animate-pulse-glow" style={{ animationDelay: "1.5s" }} />
-              <div className="absolute bottom-[20%] right-[25%] w-2 h-2 rounded-full bg-accent/50 animate-pulse-glow" style={{ animationDelay: "2s" }} />
-
-              {/* Connecting lines between dots */}
-              <svg className="absolute inset-0 w-full h-full" style={{ opacity: 0.2 }}>
-                <line x1="25%" y1="20%" x2="80%" y2="35%" stroke="rgb(201,169,110)" strokeWidth="1" />
-                <line x1="25%" y1="20%" x2="35%" y2="70%" stroke="rgb(201,169,110)" strokeWidth="1" />
-                <line x1="80%" y1="35%" x2="65%" y2="55%" stroke="rgb(201,169,110)" strokeWidth="1" />
-                <line x1="65%" y1="55%" x2="75%" y2="80%" stroke="rgb(201,169,110)" strokeWidth="1" />
-                <line x1="35%" y1="70%" x2="65%" y2="55%" stroke="rgb(201,169,110)" strokeWidth="1" />
-              </svg>
-
-              {/* Center COP label */}
-              <div className="relative flex flex-col items-center gap-1.5 z-10">
-                <div className="w-12 h-12 rounded-full border-2 border-accent bg-accent/10 flex items-center justify-center">
+              {/* COP hub floating above the map */}
+              <div className="absolute flex flex-col items-center gap-1 z-20" style={{ bottom: "38%", left: "55%" }}>
+                <div className="w-10 h-10 rounded-full border-2 border-accent bg-accent/15 flex items-center justify-center" style={{ boxShadow: "0 0 24px rgba(201,169,110,0.3)" }}>
                   <span className="w-3 h-3 rounded-full bg-accent animate-pulse-glow" />
                 </div>
-                <span className="text-xs font-mono font-bold tracking-widest text-accent uppercase">COP</span>
+                <span className="text-[0.65rem] font-mono font-bold tracking-widest text-accent uppercase">COP</span>
               </div>
 
               {/* Status indicators */}
-              <div className="absolute bottom-4 left-4 flex items-center gap-3">
+              <div className="absolute bottom-3 left-3 flex items-center gap-3">
                 <div className="flex items-center gap-1.5">
                   <span className="w-1.5 h-1.5 rounded-full bg-green-500" />
                   <span className="text-[0.6rem] font-mono text-muted">5 active</span>
